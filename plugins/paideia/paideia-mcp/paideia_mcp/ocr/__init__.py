@@ -15,7 +15,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-_SUPPORTED = ("codex-native", "qwen3-vl", "tesseract")
+_SUPPORTED = ("codex-native", "antigravity-native", "qwen3-vl", "tesseract")
 _IN_PROCESS = ("qwen3-vl", "tesseract")
 
 
@@ -60,9 +60,9 @@ def run_ocr(
         raise ValueError(
             f"unknown OCR engine '{engine}'. Supported: {', '.join(_SUPPORTED)}"
         )
-    if engine == "codex-native":
+    if engine in {"codex-native", "antigravity-native"}:
         raise NotImplementedError(
-            "codex-native OCR is performed by the calling skill via Codex's "
+            f"{engine} OCR is performed by the calling skill via the CLI's "
             "bundled vision; the MCP only rasterizes pages. Skills should "
             "branch on the tool's mode='rasterize-only' response."
         )

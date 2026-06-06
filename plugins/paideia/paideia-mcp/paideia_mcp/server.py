@@ -49,13 +49,13 @@ _INGEST_SCHEMA: dict[str, Any] = {
     "properties": {
         "engine": {
             "type": "string",
-            "enum": ["codex-native", "qwen3-vl", "tesseract"],
-            "default": "codex-native",
+            "enum": ["codex-native", "antigravity-native", "qwen3-vl", "tesseract"],
+            "default": "antigravity-native",
             "description": (
-                "OCR engine. codex-native (default) renders PDFs to PNGs "
+                "OCR engine. antigravity-native (default) renders PDFs to PNGs "
                 "under .paideia-cache/ and returns a manifest so the calling "
-                "skill can read pages with Codex CLI's bundled vision (no "
-                "extra API billing for ChatGPT subscribers). qwen3-vl needs a "
+                "skill can read pages with Antigravity CLI's bundled vision (no "
+                "extra API billing). qwen3-vl needs a "
                 "local Ollama with qwen3-vl:8b. tesseract needs pytesseract "
                 "with eng and/or kor traineddata."
             ),
@@ -91,10 +91,10 @@ _GRADE_SCHEMA: dict[str, Any] = {
         },
         "engine": {
             "type": "string",
-            "enum": ["codex-native", "qwen3-vl", "tesseract"],
+            "enum": ["codex-native", "antigravity-native", "qwen3-vl", "tesseract"],
             "description": (
                 "Override the OCR engine. When omitted, falls back to "
-                ".course-meta OCR_ENGINE, then to codex-native."
+                ".course-meta OCR_ENGINE, then to antigravity-native."
             ),
         },
         "project_root": _PROJECT_ROOT_PROP,

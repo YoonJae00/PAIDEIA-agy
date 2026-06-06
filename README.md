@@ -1,8 +1,8 @@
-<h1 align="center">ΠΑΙΔΕΙΑ · Paideia <sub>(Codex edition)</sub></h1>
+<h1 align="center">ΠΑΙΔΕΙΑ · Paideia <sub>(Antigravity/Codex edition)</sub></h1>
 
 <p align="center">
   <strong>Your course. Your patterns. Your errors. Your cheatsheet.</strong><br>
-  <em>An OpenAI Codex CLI plugin that turns your own materials into a permanent, editable, per-course study graph — every artifact shaped by you, not by a generic syllabus.</em>
+  <em>An Antigravity CLI (agy) and OpenAI Codex CLI plugin that turns your own materials into a permanent, editable, per-course study graph — every artifact shaped by you, not by a generic syllabus.</em>
 </p>
 
 <p align="center">
@@ -19,6 +19,7 @@
   <img src="https://img.shields.io/github/last-commit/OPTIMETA/PAIDEIA-codex?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="Last commit">
   <img src="https://img.shields.io/github/languages/top/OPTIMETA/PAIDEIA-codex?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="Top language">
   &nbsp;
+  <img src="https://img.shields.io/badge/Antigravity%20CLI-000000?style=flat-square&logo=google&logoColor=white&labelColor=000000&cacheSeconds=3600" alt="Antigravity CLI">
   <img src="https://img.shields.io/badge/OpenAI%20Codex-000000?style=flat-square&logo=openai&logoColor=white&labelColor=000000&cacheSeconds=3600" alt="OpenAI Codex">
   <img src="https://img.shields.io/badge/Plugin-000000?style=flat-square&labelColor=000000&color=000000&cacheSeconds=3600" alt="Plugin">
   <img src="https://img.shields.io/badge/MCP-000000?style=flat-square&labelColor=000000&color=000000&cacheSeconds=3600" alt="MCP">
@@ -67,26 +68,24 @@ Every stage produces a markdown artifact that lives in your course folder foreve
 
 ---
 
-## Why a Codex edition
+## Why an Antigravity/Codex edition
 
-> **2026-04-21 note.** On April 21, 2026, scattered reports suggested Anthropic had revoked Claude Code access for the Pro tier. Anthropic later clarified that this was only a limited test rolled out to a subset of new users — not a wholesale restriction. The Codex edition was built and shipped that same day amid the uncertainty, and it stands on its own regardless: the port is a CLI-agnostic alternative that lets you run PAIDEIA under whichever agentic CLI you already pay for. Both editions are maintained; pick whichever one fits your subscription.
-
-PAIDEIA was born as a Claude Code plugin. The heavy lifting — parallel vision ingest, strategy grading, pattern extraction from *your* solutions — didn't depend on Claude specifically; it depended on *any* agentic CLI with skills, subagents, plugins, and a workable vision path. OpenAI Codex CLI grew those affordances in 2026 (skills, subagents, MCP, plugins, `AGENTS.md`), so the port was a matter of re-homing the logic onto Codex's primitives, not rewriting the study graph.
+> **2026-04-21 note.** On April 21, 2026, scattered reports suggested Anthropic had revoked Claude Code access for the Pro tier. Anthropic later clarified that this was only a limited test rolled out to a subset of new users — not a wholesale restriction. This edition was built as a CLI-agnostic alternative that lets you run PAIDEIA under whichever agentic CLI you already use. Both Antigravity CLI and OpenAI Codex CLI grew those plugin affordances (skills, subagents, MCP, plugins) in 2026, so the port was a matter of re-homing the logic onto the CLI's primitives.
 
 The study graph on disk is **byte-for-byte the same**. `course-index/patterns.md`, `errors/log.md`, `weakmap/weakmap_<ts>.md`, `cheatsheet/final.md` — all the artifacts the Claude edition writes, this edition also writes, in the same format. Fork a course folder from the Claude edition into this one (or vice versa) and the new runner picks up without friction.
 
 ### What moved
 
-| Concept | Claude Code edition | Codex edition |
+| Concept | Claude Code edition | Antigravity / Codex edition |
 |---|---|---|
 | Verb syntax | `/paideia:ingest` | `$paideia-ingest` |
 | Project context file | `CLAUDE.md` | `AGENTS.md` |
-| Plugin-root variable | `${CLAUDE_PLUGIN_ROOT}` | `${CODEX_PLUGIN_ROOT}` |
+| Plugin-root variable | `${CLAUDE_PLUGIN_ROOT}` | `${ANTIGRAVITY_PLUGIN_ROOT}` or `${CODEX_PLUGIN_ROOT}` |
 | Heavy pipeline host | Per-PDF `general-purpose` subagents | Bundled `paideia-mcp` stdio MCP server |
-| Default OCR | Claude's native vision (no install) | Codex CLI's native vision (no install; no extra API key — uses the ChatGPT Plus/Pro/Business subscription Codex CLI already requires) |
+| Default OCR | Claude's native vision (no install) | CLI's native vision (no install; no extra API key) |
 | Local OCR | `ollama` + `qwen3-vl:8b` | same (`qwen3-vl`) |
 | Tesseract floor | yes | yes |
-| Statusline widget | `paideia · COURSE · D-N · phase · P<k>` | *(not ported — Codex has no persistent statusline slot; phase is available via `$paideia-phase`)* |
+| Statusline widget | `paideia · COURSE · D-N · phase · P<k>` | *(not ported — CLI has no persistent statusline slot; phase is available via `$paideia-phase`)* |
 
 Everything else — directory layout, pattern extraction logic, strategy-grading, HW-density exam tiering, the append-only `weakmap/` history, the error-driven cheatsheet — is the same.
 

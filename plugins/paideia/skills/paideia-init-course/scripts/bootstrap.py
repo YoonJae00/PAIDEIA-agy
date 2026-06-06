@@ -60,6 +60,8 @@ advances the course to the `mock` phase via paideia-mcp.course_phase.
 
 
 GITIGNORE = """.codex/cache/
+.antigravitycli/cache/
+.gemini/cache/
 .paideia-cache/
 answers/.paideia-cache/
 answers/*.pdf
@@ -71,7 +73,7 @@ __pycache__/
 """
 
 
-VALID_ENGINES = {"codex-native", "qwen3-vl", "tesseract"}
+VALID_ENGINES = {"codex-native", "antigravity-native", "qwen3-vl", "tesseract"}
 
 
 def _log(tag: str, path: Path) -> None:
@@ -177,7 +179,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--exam-date", required=True)
     p.add_argument("--exam-type", required=True)
     p.add_argument("--weak-zones", default="unknown")
-    p.add_argument("--ocr-engine", default="codex-native")
+    p.add_argument("--ocr-engine", default="antigravity-native")
     p.add_argument("--template", default=None, help="Override AGENTS.md.template path.")
     p.add_argument(
         "--root",

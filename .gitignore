@@ -11,3 +11,5 @@ venv/
 .coverage
 .DS_Store
 *.log
+.antigravitycli/
+.codex/

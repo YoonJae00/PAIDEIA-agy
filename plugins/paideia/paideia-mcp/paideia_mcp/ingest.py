@@ -34,7 +34,7 @@ _CATEGORIES = ("lectures", "textbook", "homework", "solutions")
 _DPI = 160
 _MAX_LONG_EDGE = 1800
 _PAGE_SEPARATOR = "\n\n---\n\n"
-_DEFAULT_ENGINE = "codex-native"
+_DEFAULT_ENGINE = "antigravity-native"
 _CACHE_DIRNAME = ".paideia-cache"
 _COPY_THROUGH_ENGINE = "copy-through"
 
@@ -42,7 +42,7 @@ _COPY_THROUGH_ENGINE = "copy-through"
 def _default_workers(engine: str) -> int:
     """Pick a conservative worker count per engine."""
 
-    if engine == "codex-native":
+    if engine in {"codex-native", "antigravity-native"}:
         return max(1, (os.cpu_count() or 4) // 2)
     if engine == "qwen3-vl":
         return 1

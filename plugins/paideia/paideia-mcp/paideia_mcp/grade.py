@@ -30,12 +30,13 @@ from .phase import parse_meta
 
 _DPI = 200
 _MAX_LONG_EDGE = 1800
-_DEFAULT_ENGINE = "codex-native"
+_DEFAULT_ENGINE = "antigravity-native"
 _CACHE_DIRNAME = ".paideia-cache"
 _ARCHIVE_DIRNAME = "_archive"
 
 _TIER_BY_ENGINE = {
     "codex-native": "high",
+    "antigravity-native": "high",
     "qwen3-vl": "medium",
     "tesseract": "low",
 }
@@ -53,9 +54,8 @@ def _read_course_meta_engine(root: Path) -> str | None:
     if normalized == "ollama":
         return "qwen3-vl"
     if normalized in {"openai-vision", "claude"}:
-        # Both old aliases now map to codex-native — Codex CLI subscribers
-        # already have vision bundled, so a separate API path is double-billing.
-        return "codex-native"
+        # Both old aliases now map to antigravity-native.
+        return "antigravity-native"
     if normalized in _TIER_BY_ENGINE:
         return normalized
     return None

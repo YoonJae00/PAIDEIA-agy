@@ -1,8 +1,8 @@
-<h1 align="center">ΠΑΙΔΕΙΑ · Paideia <sub>(Codex edition)</sub></h1>
+<h1 align="center">ΠΑΙΔΕΙΑ · Paideia <sub>(Antigravity/Codex edition)</sub></h1>
 
 <p align="center">
   <strong>당신의 과목, 당신의 패턴, 당신의 오답, 당신의 치트시트.</strong><br>
-  <em>당신의 자료에서 출발해 한 과목에 영속적으로 머무는 학습 그래프를 만드는 OpenAI Codex CLI 플러그인입니다 — 모든 산출물이 일반 실러버스가 아니라 당신의 손끝에서 빚어집니다.</em>
+  <em>당신의 자료에서 출발해 한 과목에 영속적으로 머무는 학습 그래프를 만드는 Antigravity CLI (agy) 및 OpenAI Codex CLI 플러그인입니다 — 모든 산출물이 일반 실러버스가 아니라 당신의 손끝에서 빚어집니다.</em>
 </p>
 
 <p align="center">
@@ -19,6 +19,7 @@
   <img src="https://img.shields.io/github/last-commit/OPTIMETA/PAIDEIA-codex?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="최근 커밋">
   <img src="https://img.shields.io/github/languages/top/OPTIMETA/PAIDEIA-codex?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="주요 언어">
   &nbsp;
+  <img src="https://img.shields.io/badge/Antigravity%20CLI-000000?style=flat-square&logo=google&logoColor=white&labelColor=000000&cacheSeconds=3600" alt="Antigravity CLI">
   <img src="https://img.shields.io/badge/OpenAI%20Codex-000000?style=flat-square&logo=openai&logoColor=white&labelColor=000000&cacheSeconds=3600" alt="OpenAI Codex">
   <img src="https://img.shields.io/badge/Plugin-000000?style=flat-square&labelColor=000000&color=000000&cacheSeconds=3600" alt="Plugin">
   <img src="https://img.shields.io/badge/MCP-000000?style=flat-square&labelColor=000000&color=000000&cacheSeconds=3600" alt="MCP">
@@ -44,30 +45,24 @@
 
 <p align="center">
   <em>일반적인 학습 도구는 평균적인 실러버스를 가르칩니다. Paideia는 <strong>당신의</strong> 실러버스를 가르칩니다 —<br>
-  당신의 교수님 강의노트, 당신의 숙제 경향, 당신의 필기, 당신의 오답에서 출발해서요. 모든 산출물은 당신이 직접 편집할 수 있는 마크다운 파일입니다.</em>
-</p>
+  당신의 교수님 강의노트, 당신의 숙제 경향, 당신의 필기, 당신의 오답에서 출발해서요. 모든 산출물은 당신이 직접 편집할 수 있는 마크다운 �## 왜 Antigravity/Codex 에디션이 필요한가
 
----
+> **2026-04-21 참고.** 2026년 4월 21일, Anthropic이 Pro 티어의 Claude Code 접근 권한을 없앴다는 보도가 일시적으로 돌았습니다. 이후 Anthropic은 "일부 신규 사용자 대상의 한정된 테스트였을 뿐, 전면 제한이 아니다"라고 공식적으로 정정했습니다. 이 에디션은 그 혼란 속에서 CLI-중립 대안으로 만들어져 공개되었습니다. Antigravity CLI 및 OpenAI Codex CLI는 2026년에 필요한 플러그인 기반(skills, subagents, MCP, plugins)을 모두 갖추게 되었고, 덕분에 이식은 학습 그래프를 새로 설계하는 일이 아니라 **기존 로직을 CLI의 기본 요소 위에 다시 얹는 일**로 마무리되었습니다.
 
-## Paideia라는 이름에 대하여
+디스크 위 학습 그래프는 **바이트 단위로 동일합니다**. `course-index/patterns.md`, `errors/log.md`, `weakmap/weakmap_<ts>.md`, `cheatsheet/final.md` — Claude 에디션이 쓰는 모든 산출물을 이 에디션도 같은 포맷으로 씁니다. Claude 에디션으로 만드신 코스 폴더를 그대로 이 에디션에서 여셔도(또는 그 반대도) 마찰 없이 이어 가실 수 있습니다.
 
-고대 그리스에서 **Παιδεία(파이데이아)**는 수동적인 학생에게 사실을 주입하는 일이 아니었습니다. 그것은 원전과의 구조화된 만남, 스승 아래에서의 연습, 그리고 피드백을 더 깊은 수정으로 되돌려 보내는 성찰적 대화를 통한 — 한 인간을 평생에 걸쳐 형성해 가는 일이었습니다.
+### 무엇이 바뀌었는가
 
-이 플러그인은 그 순환을 **수학·물리·공학 과목의 시험 준비**라는 구체적이고 한정된 문제에 맞추어 구현합니다.
-
-```
-  ingest ──▶ analyze ──▶ drill ──▶ grade ──▶ weakmap ──▶ cheatsheet
-     ▲                                                        │
-     └────────────────── feedback loop ───────────────────────┘
-```
-
-각 단계는 당신의 코스 폴더에 영원히 남는 마크다운 파일 하나씩을 남깁니다. 휘발되는 것은 없고, API 뒤에 숨는 것도 없습니다. 다음 자금 한파가 닥쳐도 멈추는 것이 없습니다.
-
----
-
-## 왜 Codex 에디션이 필요한가
-
-> **2026-04-21 참고.** 2026년 4월 21일, Anthropic이 Pro 티어의 Claude Code 접근 권한을 없앴다는 보도가 일시적으로 돌았습니다. 이후 Anthropic은 "일부 신규 사용자 대상의 한정된 테스트였을 뿐, 전면 제한이 아니다"라고 공식적으로 정정했습니다. Codex 에디션은 그 혼란 속에서 같은 날 만들어져 공개되었고, 정정이 나온 뒤에도 그대로 의미가 있습니다 — 어느 agentic CLI를 이미 결제 중이든 PAIDEIA를 돌릴 수 있도록 해 주는 CLI-중립 대안으로 남기 때문입니다. 두 에디션 모두 함께 관리되니, 구독 환경에 맞는 쪽을 고르시면 됩니다.
+| 개념 | Claude Code 에디션 | Antigravity / Codex 에디션 |
+|---|---|---|
+| 명령 문법 | `/paideia:ingest` | `$paideia-ingest` |
+| 프로젝트 컨텍스트 파일 | `CLAUDE.md` | `AGENTS.md` |
+| 플러그인 루트 변수 | `${CLAUDE_PLUGIN_ROOT}` | `${ANTIGRAVITY_PLUGIN_ROOT}` 또는 `${CODEX_PLUGIN_ROOT}` |
+| 무거운 파이프라인이 사는 곳 | PDF별 `general-purpose` 서브에이전트 | 번들 `paideia-mcp` stdio MCP 서버 |
+| 기본 OCR | Claude 네이티브 비전(추가 설치 없음) | CLI 내장 비전 (추가 설치 없음, 별도 API 키 불필요) |
+| 로컬 OCR | `ollama` + `qwen3-vl:8b` | 동일 (`qwen3-vl`) |
+| Tesseract 최후 보루 | 있음 | 있음 |
+| Statusline 위젯 | `paideia · COURSE · D-N · phase · P<k>` | *(미포팅 — CLI에 지속 statusline 슬롯이 없습니다. 단계는 `$paideia-phase`로 조회)* |있습니다 — 어느 agentic CLI를 이미 결제 중이든 PAIDEIA를 돌릴 수 있도록 해 주는 CLI-중립 대안으로 남기 때문입니다. 두 에디션 모두 함께 관리되니, 구독 환경에 맞는 쪽을 고르시면 됩니다.
 
 PAIDEIA는 원래 Claude Code 플러그인으로 태어났습니다. 핵심 로직 — 병렬 비전 인제스트, 전략 기반 채점, *당신*의 풀이집에서 패턴을 추출하기 — 은 사실 Claude에 묶여 있던 적이 없었습니다. 대신 *어떤* agentic CLI든 "skills, subagents, plugins, 그리고 쓸만한 비전 경로"라는 네 가지 기반을 갖추기만 하면 얹을 수 있는 구조였습니다. OpenAI Codex CLI는 2026년에 그 기반(skills, subagents, MCP, plugins, `AGENTS.md`)을 모두 갖추게 되었고, 덕분에 이식은 학습 그래프를 새로 설계하는 일이 아니라 **기존 로직을 Codex의 기본 요소 위에 다시 얹는 일**로 마무리되었습니다.
 

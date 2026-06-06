@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "paideia-mcp": {
+      "command": "python3",
+      "args": [
+        "-c",
+        "exec(\"import os\\nimport pathlib\\nimport sys\\n\\nroots = []\\nfor env_var in (\\\"ANTIGRAVITY_PLUGIN_ROOT\\\", \\\"AGY_PLUGIN_ROOT\\\", \\\"CODEX_PLUGIN_ROOT\\\"):\\n    env = os.environ.get(env_var)\\n    if env:\\n        roots.append(pathlib.Path(env))\\n\\nhome = pathlib.Path.home()\\nfor pattern in (\\n    \\\".gemini/antigravity-cli/plugins/cache/*/paideia/*\\\",\\n    \\\".gemini/antigravity-cli/plugins/paideia\\\",\\n    \\\".codex/plugins/cache/*/paideia/*\\\",\\n    \\\".codex/.tmp/marketplaces/*/plugins/paideia\\\",\\n):\\n    roots.extend(home.glob(pattern))\\n\\nfor root in roots:\\n    mcp = root / \\\"paideia-mcp\\\"\\n    if (mcp / \\\"paideia_mcp\\\" / \\\"bootstrap.py\\\").exists():\\n        sys.path.insert(0, str(mcp))\\n        break\\nelse:\\n    raise SystemExit(\\n        \\\"paideia-mcp: cannot locate paideia_mcp package\\\"\\n    )\\n\\nfrom paideia_mcp.bootstrap import main\\n\\nmain()\")"
+      ],
+      "startup_timeout_sec": 120,
+      "tool_timeout_sec": 1800,
+      "supports_parallel_tool_calls": true
+    }
+  }
+}

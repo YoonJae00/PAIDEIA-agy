@@ -1,6 +1,6 @@
 ---
 name: paideia-init-course
-description: Bootstrap the current directory into a fresh PAIDEIA course workspace. Checks system dependencies (Python, poppler, tesseract, optionally ollama), prompts for course metadata plus an OCR engine (codex-native / qwen3-vl / tesseract), creates the directory skeleton, writes AGENTS.md, and runs git init. Run once per course folder, in that folder's CWD.
+description: Bootstrap the current directory into a fresh PAIDEIA course workspace. Checks system dependencies (Python, poppler, tesseract, optionally ollama), prompts for course metadata plus an OCR engine (antigravity-native / codex-native / qwen3-vl / tesseract), creates the directory skeleton, writes AGENTS.md, and runs git init. Run once per course folder, in that folder's CWD.
 ---
 
 # paideia-init-course
@@ -29,7 +29,7 @@ python3 -c "import mcp.server, pypdf, pytesseract, pdf2image, PIL, reportlab, ht
   || echo "MISSING_PYTHON_DEPS"
 ```
 
-`mcp` is the stdio protocol package that the bundled `paideia-mcp` server imports at startup — if it's missing, Codex shows a scary "MCP startup failed: handshaking with MCP server failed" banner on every session start. Installing it here clears that. `httpx` is needed by the `qwen3-vl` OCR path (Ollama HTTP API). The rest (`pypdf`, `pytesseract`, `pdf2image`, `pillow`, `reportlab`) are the PDF + OCR + cheatsheet-PDF pipeline.
+`mcp` is the stdio protocol package that the bundled `paideia-mcp` server imports at startup — if it's missing, Antigravity shows a scary "MCP startup failed: handshaking with MCP server failed" banner on every session start. Installing it here clears that. `httpx` is needed by the `qwen3-vl` OCR path (Ollama HTTP API). The rest (`pypdf`, `pytesseract`, `pdf2image`, `pillow`, `reportlab`) are the PDF + OCR + cheatsheet-PDF pipeline.
 
 If any are missing, offer:
 
@@ -38,7 +38,7 @@ python3 -m pip install --break-system-packages --user \
   "mcp>=1.2.0" pypdf pytesseract pdf2image pillow reportlab httpx
 ```
 
-Run only with the user's OK. After install completes, tell the user to restart their Codex session so the MCP server is re-spawned with deps in place.
+Run only with the user's OK. After install completes, tell the user to restart their Antigravity session so the MCP server is re-spawned with deps in place.
 
 ## Step 3 — Ask: which OCR engine?
 
@@ -47,21 +47,22 @@ Ask the user in Korean:
 ```
 OCR 엔진을 선택해 주세요 (이후 `$paideia-grade --ocr=<engine>`로 호출마다 덮어쓸 수 있습니다):
 
-  1) codex-native — Codex CLI 내장 비전으로 직접 읽기 (기본값, ChatGPT Plus/Pro/Business
-                     구독으로 이미 포함 — 별도 API 과금 없음, 필기/수식/한글 정확도 최상)
-  2) qwen3-vl      — 로컬 Qwen3-VL 8B (외부 전송 전혀 없음, 최초 ~6 GB 다운로드 필요)
-  3) tesseract     — pytesseract eng/kor (가장 가볍고 빠름, 필기 정확도는 낮음)
+  1) antigravity-native — Antigravity CLI 내장 비전으로 직접 읽기 (기본값, 별도 API 과금 없음, 필기/수식/한글 정확도 최상)
+  2) codex-native       — Codex CLI 내장 비전으로 직접 읽기 (ChatGPT Plus 구독 필요)
+  3) qwen3-vl           — 로컬 Qwen3-VL 8B (외부 전송 전혀 없음, 최초 ~6 GB 다운로드 필요)
+  4) tesseract          — pytesseract eng/kor (가장 가볍고 빠름, 필기 정확도는 낮음)
 
-  입력 없이 Enter 시: codex-native
+  입력 없이 Enter 시: antigravity-native
 ```
 
-Normalize to one of `codex-native` / `qwen3-vl` / `tesseract`. Hold the value as `$OCR_ENGINE` for later steps.
+Normalize to one of `antigravity-native` / `codex-native` / `qwen3-vl` / `tesseract`. Hold the value as `$OCR_ENGINE` for later steps.
 
-`codex-native` has no extra auth step — the user's Codex CLI session is already authenticated ("Sign in with ChatGPT"), and Codex reads page images via its built-in vision. No `OPENAI_API_KEY` required.
+`antigravity-native` has no extra auth step — the user's Antigravity CLI session is already authenticated, and Antigravity reads page images via its built-in vision. No API key required.
+`codex-native` reads via Codex's built-in vision.
 
 ## Step 3a — Ollama model pull (only if `$OCR_ENGINE = qwen3-vl`)
 
-Skip entirely for `codex-native` / `tesseract`.
+Skip entirely for `antigravity-native` / `codex-native` / `tesseract`.
 
 If ollama binary is missing: stop and tell the user to install it first (`brew install ollama` on macOS, `https://ollama.com/install.sh` on Linux), then re-run `$paideia-init-course`.
 
@@ -97,7 +98,7 @@ Wait for all four responses. Do not proceed without them.
 Call the bundled scaffolder with the collected values. It creates the directory skeleton, writes `.course-meta`, writes `AGENTS.md` from the template, seeds `errors/log.md`, merges PAIDEIA-managed `.gitignore` rules, and runs `git init` if the folder is not already a repository.
 
 ```bash
-python3 "${CODEX_PLUGIN_ROOT}/skills/paideia-init-course/scripts/bootstrap.py" \
+python3 "${ANTIGRAVITY_PLUGIN_ROOT:-${AGY_PLUGIN_ROOT:-${CODEX_PLUGIN_ROOT}}}/skills/paideia-init-course/scripts/bootstrap.py" \
   --course-name  "$COURSE_NAME" \
   --exam-date    "$EXAM_DATE" \
   --exam-type    "$EXAM_TYPE" \
@@ -125,6 +126,6 @@ If Step 3a spawned a pull, `wait $BACKGROUND_PULL_PID` and report success or poi
 
 ## Notes
 
-- `AGENTS.md` is the Codex equivalent of `CLAUDE.md` — Codex reads it every turn. If `AGENTS.md` already exists in CWD, the scaffolder **does not overwrite it** — it prints `skip: AGENTS.md exists (leaving alone)`. Ask the user if they want to merge the PAIDEIA template in by hand.
+- `AGENTS.md` is the Antigravity equivalent of `CLAUDE.md` — Antigravity reads it every turn. If `AGENTS.md` already exists in CWD, the scaffolder **does not overwrite it** — it prints `skip: AGENTS.md exists (leaving alone)`. Ask the user if they want to merge the PAIDEIA template in by hand.
 - This skill is idempotent. Re-running it on an already-initialized folder only refreshes `.course-meta` and tops up any missing directories.
-- No statusline wiring: Codex CLI does not currently expose a persistent statusline slot. The phase readout is available on demand via `$paideia-phase`, or by calling `paideia-mcp.course_phase` from any skill.
+- No statusline wiring: Antigravity CLI does not currently expose a persistent statusline slot. The phase readout is available on demand via `$paideia-phase`, or by calling `paideia-mcp.course_phase` from any skill.

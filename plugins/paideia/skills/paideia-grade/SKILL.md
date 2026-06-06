@@ -1,6 +1,6 @@
 ---
 name: paideia-grade
-description: Grade a hand-written, scanned answer PDF. OCR via the engine set in .course-meta (override with --ocr=codex-native|qwen3-vl|tesseract). codex-native rasterizes pages and lets Codex read them via its bundled vision; the others OCR inside the MCP. Strategy-based grading (pattern / variables / end-form) against the reference solution. Errors append to errors/log.md for weakmap and cheatsheet.
+description: Grade a hand-written, scanned answer PDF. OCR via the engine set in .course-meta (override with --ocr=antigravity-native|codex-native|qwen3-vl|tesseract). antigravity-native rasterizes pages and lets Antigravity read them via its bundled vision; the others OCR inside the MCP. Strategy-based grading (pattern / variables / end-form) against the reference solution. Errors append to errors/log.md for weakmap and cheatsheet.
 ---
 
 # paideia-grade
@@ -10,14 +10,14 @@ Convert a hand-written scan to markdown, then grade the user's approach against 
 ## Arguments (free-form)
 
 - Positional: path to answer file (`answers/<stem>.pdf` or an already-cleaned `.md`). If omitted, use the most recently modified file in `answers/` that isn't in `answers/converted/`.
-- `--ocr=<engine>` — override engine for this call (`codex-native` / `qwen3-vl` / `tesseract`).
+- `--ocr=<engine>` — override engine for this call (`antigravity-native` / `codex-native` / `qwen3-vl` / `tesseract`).
 
 ## Step 1 — Resolve target + engine
 
 1. If `$ARGUMENTS` has a positional path, use it. Else pick `answers/*.pdf` (or `*.md`) with the newest `mtime`.
 2. If target is `.md`, skip Step 2 entirely — treat it as user-cleaned OCR output and jump to Step 3.
-3. Engine precedence: `--ocr=` flag → `OCR_ENGINE` in `.course-meta` → `codex-native`.
-4. No API-key check — `codex-native` uses the Codex CLI session's bundled vision (no `OPENAI_API_KEY` needed).
+3. Engine precedence: `--ocr=` flag → `OCR_ENGINE` in `.course-meta` → `antigravity-native`.
+4. No API-key check — `antigravity-native` uses the Antigravity CLI session's bundled vision (no API key needed).
 
 ## Step 2 — Call `paideia-mcp.grade_pdf` (PDF only)
 
@@ -44,12 +44,12 @@ The response shape depends on `mode`:
 }
 ```
 
-**`mode: "rasterize-only"`** (`codex-native`) — the MCP wrote per-page PNGs under `answers/.paideia-cache/<stem>/p01.png` ... and handed the list back:
+**`mode: "rasterize-only"`** (`antigravity-native` / `codex-native`) — the MCP wrote per-page PNGs under `answers/.paideia-cache/<stem>/p01.png` ... and handed the list back:
 
 ```json
 {
   "mode":        "rasterize-only",
-  "engine":      "codex-native",
+  "engine":      "antigravity-native",
   "tier":        "high",
   "destination": "<abs>/answers/converted/<stem>.md",
   "page_paths":  ["<abs>/answers/.paideia-cache/<stem>/p01.png", ...],
@@ -64,7 +64,7 @@ The `archived_to` field is non-null whenever the source PDF lived directly under
 
 ### Step 2a — Only for `rasterize-only`: read pages + write markdown
 
-Open each `page_paths[i]` image with Codex's bundled vision and transcribe page-by-page. Hand-written math is the hard case: use this prompt per page (adjust to Korean if the user prefers):
+Open each `page_paths[i]` image with Antigravity's bundled vision and transcribe page-by-page. Hand-written math is the hard case: use this prompt per page (adjust to Korean if the user prefers):
 
 > Transcribe the hand-written answer PDF page into markdown. Use LaTeX for math (`$...$`, `$$...$$`). Preserve problem numbering (e.g., `## Problem 2`, `### (a)`). Where a glyph is unreadable, write `[?]` and keep going — do not guess. Output only the markdown.
 
@@ -99,7 +99,7 @@ If `tier == "low"` (tesseract fallback, or <100 chars of extracted text after yo
 ```
 OCR 결과 품질이 낮음 (채점 신뢰도 떨어짐).
 옵션:
-  (a) $paideia-grade --ocr=codex-native <pdf>   ← Codex 내장 비전으로 재시도 (기본)
+  (a) $paideia-grade --ocr=antigravity-native <pdf>   ← Antigravity 내장 비전으로 재시도 (기본)
   (b) 더 밝게/크게 재스캔 후 다시 $paideia-grade
   (c) 답안을 직접 .md로 타이핑해서 answers/converted/<stem>.md 에 저장 후 다시 $paideia-grade
   (d) 채점 대신 $paideia-blind <problem-id>로 전략만 말로 체크

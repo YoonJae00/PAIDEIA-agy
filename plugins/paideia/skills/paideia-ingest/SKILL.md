@@ -1,6 +1,6 @@
 ---
 name: paideia-ingest
-description: Convert every PDF under materials/** into LaTeX-faithful markdown under converted/**. Default engine (codex-native) rasterizes each PDF and hands the page images back for Codex to read with its bundled vision; qwen3-vl / tesseract run OCR inside the paideia-mcp server. Idempotent — skips files whose converted target already exists; pass --force to reconvert.
+description: Convert every PDF under materials/** into LaTeX-faithful markdown under converted/**. Default engine (antigravity-native) rasterizes each PDF and hands the page images back for Antigravity to read with its bundled vision; qwen3-vl / tesseract run OCR inside the paideia-mcp server. Idempotent — skips files whose converted target already exists; pass --force to reconvert.
 ---
 
 # paideia-ingest
@@ -12,7 +12,7 @@ Skill body stays thin. Heavy fan-out lives in `paideia-mcp.ingest_pdfs`.
 ## Arguments (free-form)
 
 - `--force` — reconvert even if `converted/<cat>/<stem>.md` already exists
-- `--ocr=<engine>` — override the OCR engine for this call (`codex-native` / `qwen3-vl` / `tesseract`)
+- `--ocr=<engine>` — override the OCR engine for this call (`antigravity-native` / `codex-native` / `qwen3-vl` / `tesseract`)
 - `--only=<cats>` — restrict to a subset of `lectures,textbook,homework,solutions` (comma-separated)
 
 ## Routing rule
@@ -36,9 +36,9 @@ Read `.course-meta` to learn the default `OCR_ENGINE`. Precedence for this call:
 
 1. `--ocr=<engine>` in this call's arguments
 2. `OCR_ENGINE` in `.course-meta`
-3. `codex-native` as the ultimate default
+3. `antigravity-native` as the ultimate default
 
-No API-key check is needed — `codex-native` uses the Codex CLI session's bundled vision (already paid for via the user's ChatGPT Plus/Pro/Business subscription); `qwen3-vl` hits a local Ollama at `localhost:11434`; `tesseract` is fully local.
+No API-key check is needed — `antigravity-native` uses the Antigravity CLI session's bundled vision (already paid for via the user's subscription); `qwen3-vl` hits a local Ollama at `localhost:11434`; `tesseract` is fully local.
 
 ### Step 2 — Call `paideia-mcp.ingest_pdfs`
 
@@ -66,12 +66,12 @@ The tool returns one of two response shapes, keyed by `mode`:
 }
 ```
 
-**`mode: "rasterize-only"`** (`codex-native`) — the MCP wrote PNGs under `.paideia-cache/pages/<stem>/p01.png`, `p02.png`, ... and handed the manifest back. You must now turn those images into markdown yourself:
+**`mode: "rasterize-only"`** (`antigravity-native` / `codex-native`) — the MCP wrote PNGs under `.paideia-cache/pages/<stem>/p01.png`, `p02.png`, ... and handed the manifest back. You must now turn those images into markdown yourself:
 
 ```json
 {
   "mode": "rasterize-only",
-  "engine": "codex-native",
+  "engine": "antigravity-native",
   "pending": [
     {
       "path":        "materials/lectures/ch01.pdf",
@@ -89,7 +89,7 @@ The tool returns one of two response shapes, keyed by `mode`:
 
 ### Step 2a — Only for `rasterize-only`: transcribe each pending PDF
 
-For **each entry in `pending`**, open every `page_paths[i]` image with Codex's built-in vision (you can read each PNG the same way you read any local image), transcribe page-by-page, and write the combined result to `destination`.
+For **each entry in `pending`**, open every `page_paths[i]` image with Antigravity's built-in vision (you can read each PNG the same way you read any local image), transcribe page-by-page, and write the combined result to `destination`.
 
 Prompt skeleton for each page (apply uniformly, translate any chat to Korean if the user prefers):
 
@@ -99,7 +99,7 @@ Between pages, insert the page separator `\n\n---\n\n`. Prefix the whole file wi
 
 ```
 <!-- source: materials/<cat>/<stem>.pdf -->
-<!-- engine: codex-native -->
+<!-- engine: antigravity-native -->
 <!-- pages: <N> -->
 <!-- ingested: <ingested_at from the response> -->
 
@@ -116,7 +116,7 @@ Between pages, insert the page separator `\n\n---\n\n`. Prefix the whole file wi
 
 Create the destination directory if needed (`mkdir -p`). Write the file in one shot. Do **not** leave partial files on failure — if a page transcription fails, skip writing that PDF's markdown and add `{path, error}` to the failed list you'll report in Step 3.
 
-Parallelism: if there are multiple PDFs in `pending`, it's fine to spawn a subagent per PDF (one-agent-per-PDF, sequential pages is the contract). Each subagent gets one entry from `pending` and writes its own destination. Do not fan out across pages inside a single PDF — Codex context stays cleaner when a single agent sees a PDF end-to-end.
+Parallelism: if there are multiple PDFs in `pending`, it's fine to spawn a subagent per PDF (one-agent-per-PDF, sequential pages is the contract). Each subagent gets one entry from `pending` and writes its own destination. Do not fan out across pages inside a single PDF — Antigravity context stays cleaner when a single agent sees a PDF end-to-end.
 
 For very large PDFs (>30 pages), consider chunking the page list into batches of ~10 and emitting partial progress to the user.
 
@@ -140,7 +140,7 @@ For each entry in `failed`, surface the error and a suggested workaround:
 - Password-protected PDF → `qpdf --password=... --decrypt in.pdf out.pdf` first, then re-run
 - Timeout / transient engine error → `$paideia-ingest --force` to retry just that file
 - Render step OOM on huge PDF → split the PDF first, ingest each half
-- `codex-native` page-read failure → rerun, or fall back with `$paideia-ingest --ocr=qwen3-vl`
+- `antigravity-native` page-read failure → rerun, or fall back with `$paideia-ingest --ocr=qwen3-vl`
 
 End with one line:
 
@@ -150,8 +150,8 @@ End with one line:
 
 ## Conventions
 
-- Math renders as LaTeX (`$...$`, `$$...$$`), not Unicode glyphs. For `codex-native` this is your job via the transcription prompt; for the in-process engines the MCP enforces it.
+- Math renders as LaTeX (`$...$`, `$$...$$`), not Unicode glyphs. For `antigravity-native` this is your job via the transcription prompt; for the in-process engines the MCP enforces it.
 - Each output file starts with `<!-- source: ... -->`, `<!-- engine: ... -->`, `<!-- pages: N -->`, `<!-- ingested: <ISO> -->`.
 - `[?]` marks mean a glyph couldn't be read confidently. Count them and flag files with >5 `[?]` in the summary.
-- `.paideia-cache/` is gitignored; the rasterized PNGs are a private working set for the `codex-native` flow. They're safe to delete after ingest.
+- `.paideia-cache/` is gitignored; the rasterized PNGs are a private working set for the `antigravity-native` flow. They're safe to delete after ingest.
 - Skill output ≤ 25 lines; any per-page chatter from subagents is their own to produce — don't paraphrase it into the main thread.

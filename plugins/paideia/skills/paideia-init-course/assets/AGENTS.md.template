@@ -1,9 +1,9 @@
-# PAIDEIA — Course Context (Codex)
+# PAIDEIA — Course Context (Antigravity/Codex)
 
 ## Purpose
 
 This folder is a per-course exam-prep workspace. Given raw materials (lecture notes, textbook
-chapters, HW problems, HW solutions — PDF or markdown), Codex builds a structured knowledge
+chapters, HW problems, HW solutions — PDF or markdown), the CLI builds a structured knowledge
 base and drives drilling, grading, and compression toward the exam date.
 
 ## Course metadata
@@ -16,11 +16,11 @@ WEAK_ZONES:  $WEAK_ZONES
 OCR_ENGINE:  $OCR_ENGINE
 ```
 
-`OCR_ENGINE` is one of `codex-native` (default — renders PDFs to PNG and reads them via
-Codex CLI's bundled vision, no extra API billing for ChatGPT Plus/Pro/Business subscribers),
-`qwen3-vl` (local Ollama, fully offline), or `tesseract` (lightest, lowest fidelity). The
-value in `.course-meta` is authoritative; any skill can override per-call with
-`--ocr=<engine>`.
+`OCR_ENGINE` is one of `antigravity-native` (default — renders PDFs to PNG and reads them via
+Antigravity CLI's bundled vision, no extra API billing), `codex-native` (reads via Codex CLI's
+bundled vision, ChatGPT Plus required), `qwen3-vl` (local Ollama, fully offline), or `tesseract`
+(lightest, lowest fidelity). The value in `.course-meta` is authoritative; any skill can override
+per-call with `--ocr=<engine>`.
 
 ## Directory map
 
@@ -34,7 +34,7 @@ skills; treat it as derived. See the plugin README for full semantics.
 
 ## How skills are invoked
 
-Codex exposes each skill as `$paideia-<verb>`. Type the verb in chat and Codex loads the
+The CLI exposes each skill as `$paideia-<verb>`. Type the verb in chat and the CLI loads the
 skill body before acting. Core verbs:
 
 - `$paideia-ingest` — every PDF in `materials/**` → LaTeX markdown in `converted/**`, via
@@ -47,14 +47,14 @@ skill body before acting. Core verbs:
 - `$paideia-weakmap`, `$paideia-cheatsheet` — priority reports and one-pager.
 
 Heavy pipelines (parallel PDF OCR, multi-engine OCR dispatch, course-index extraction, phase
-detection) live in the `paideia-mcp` stdio server, so skill bodies stay short and Codex never
+detection) live in the `paideia-mcp` stdio server, so skill bodies stay short and the CLI never
 has to hold raw page images in context.
 
 ## Workflow philosophy
 
-1. **User does not type math in the CLI.** Codex produces markdown files. User reads.
+1. **User does not type math in the CLI.** The CLI produces markdown files. User reads.
 2. **User produces PDF scans** of hand-written work, dropped into `answers/`.
-3. **Codex OCRs via the engine in `OCR_ENGINE`** and **strategy-grades** — pattern match,
+3. **The CLI OCRs via the engine in `OCR_ENGINE`** and **strategy-grades** — pattern match,
    not line-by-line algebra. OCR noise in hand-written math makes strict grading useless.
 4. **HW density = exam probability.** Drill `🔥🔥` (3+ HW on a section) first; `⚪` (no HW)
    is reference-only — the professor's omission is itself a signal.
@@ -70,7 +70,7 @@ has to hold raw page images in context.
 
 If the user insists on drilling a ⚪ section, comply once and warn that exam probability is low.
 
-## Conventions Codex follows
+## Conventions the CLI follows
 
 - **Citations.** Every explanation cites `converted/<file>.md §K`. This trains the user's
   mental index of where things live in the source materials.
@@ -92,7 +92,7 @@ If the user insists on drilling a ⚪ section, comply once and warn that exam pr
 - **No CLI math answers.** If the user starts typing a solution in chat, redirect them to
   the PDF-upload workflow.
 
-## What Codex should NOT do
+## What the CLI should NOT do
 
 - Ask the user to type math in chat.
 - Produce answers that assume the user will solve problems in chat.
@@ -100,7 +100,7 @@ If the user insists on drilling a ⚪ section, comply once and warn that exam pr
 - Reveal solutions proactively — always wait for the user's attempt, or an explicit "show me".
 - Write verbose prose when the user needs an index entry.
 
-## What Codex SHOULD do
+## What the CLI SHOULD do
 
 - Check `course-index/` exists before running any drill skill.
 - Cite sources (`converted/` files) in all explanations.
