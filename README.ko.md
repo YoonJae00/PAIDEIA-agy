@@ -173,13 +173,14 @@ Paideia를 샌드박스가 걸린 Antigravity 세션 안에서 실행하면, 로
 
 이 경우 Antigravity가 승인 요청을 띄우면 **Approve**를 눌러 주세요. Ollama와 Antigravity가 정상 설치되어 있어도, 이 승인을 거절하면 OCR/테스트 호출이 샌드박스에서 막혀 실패할 수 있습니다.
 
-### Antigravity CLI로 설치 (로컬 개발 모드)
+### Antigravity CLI로 설치
  
-터미널에서 프로젝트 루트 디렉토리로 이동한 뒤 다음 명령어를 실행하여 로컬 플러그인을 활성화합니다.
+터미널에서 다음 명령어를 실행하여 깃허브 저장소로부터 플러그인을 직접 설치합니다.
  
 ```bash
-agy plugin install ./plugins/paideia
+agy plugin install https://github.com/YoonJae00/PAIDEIA-agy
 ```
+
 
 
 설치가 끝나면 15개의 동사가 `/paideia-` 접두어로 제공되고, 코스 폴더에 들어가시는 순간 `paideia-mcp` stdio 서버가 자동으로 스폰됩니다.

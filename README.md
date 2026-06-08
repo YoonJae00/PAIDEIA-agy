@@ -206,13 +206,14 @@ If Antigravity asks for approval in either case, click **Approve** so the plugin
 
 ### Install via the Antigravity CLI
 
-Navigate to the project root directory and run the following command to install the local plugin:
+Run the following command to install the plugin directly from the Git repository:
 
 ```bash
-agy plugin install ./plugins/paideia
+agy plugin install https://github.com/YoonJae00/PAIDEIA-agy
 ```
 
 The 16 `/paideia-` verbs are now available in every conversation, and the bundled `paideia-mcp` stdio server auto-launches when you enter a course folder. Continue to **Per-course bootstrap** below.
+
 
 
 > The full `https://...` URL is deliberate — `owner/repo` shorthand can make the CLI try SSH first, which fails if you don't have a GitHub SSH key registered. HTTPS always works.
