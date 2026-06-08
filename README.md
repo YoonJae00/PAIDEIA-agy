@@ -204,34 +204,16 @@ If you run Paideia inside a sandboxed Antigravity session, local-engine and veri
 
 If Antigravity asks for approval in either case, click **Approve** so the plugin can reach the local model or run the verification command. Otherwise the OCR/test call can fail even when Ollama and Antigravity are installed correctly.
 
-### Install via the Antigravity app (recommended)
-
-The desktop app is the smoothest reading surface for Paideia — `summary.md`, `patterns.md`, `coverage.md`, and your `derivations/*.md` notes render inline as the agent emits them (see the screenshot grid above), so there's no separate reader to keep open.
-
-1. Download the **Antigravity app** for your OS (macOS / Windows / Linux) and sign in with your ChatGPT Plus / Pro / Business / Edu / Enterprise account. See [developers.openai.com/antigravity](https://developers.openai.com/antigravity) for the current install link.
-2. Open any new conversation and run each line as its own command:
-
-   ```
-   /plugins marketplace add https://github.com/YoonJae00/PAIDEIA-agy.git
-   ```
-
-   ```
-   /plugins install paideia@paideia-marketplace
-   ```
-
-3. The 16 `$paideia-` verbs are now available in every conversation, and the bundled `paideia-mcp` stdio server auto-launches when you enter a course folder. Continue to **Per-course bootstrap** below.
-
 ### Install via the Antigravity CLI
 
-If you prefer the terminal, install [Antigravity CLI](https://github.com/openai/antigravity) (`antigravity` on `PATH`) first, then run the same two commands inside `antigravity`, each as a separate line:
+Navigate to the project root directory and run the following command to install the local plugin:
 
-```
-/plugins marketplace add https://github.com/YoonJae00/PAIDEIA-agy.git
+```bash
+agy plugin install ./plugins/paideia
 ```
 
-```
-/plugins install paideia@paideia-marketplace
-```
+The 16 `$paideia-` verbs are now available in every conversation, and the bundled `paideia-mcp` stdio server auto-launches when you enter a course folder. Continue to **Per-course bootstrap** below.
+
 
 > The full `https://...` URL is deliberate — `owner/repo` shorthand can make the CLI try SSH first, which fails if you don't have a GitHub SSH key registered. HTTPS always works.
 
