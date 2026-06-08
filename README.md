@@ -212,7 +212,7 @@ The desktop app is the smoothest reading surface for Paideia — `summary.md`, `
 2. Open any new conversation and run each line as its own command:
 
    ```
-   /plugins marketplace add https://github.com/OPTIMETA/PAIDEIA-agy.git
+   /plugins marketplace add https://github.com/YoonJae00/PAIDEIA-agy.git
    ```
 
    ```
@@ -226,7 +226,7 @@ The desktop app is the smoothest reading surface for Paideia — `summary.md`, `
 If you prefer the terminal, install [Antigravity CLI](https://github.com/openai/antigravity) (`antigravity` on `PATH`) first, then run the same two commands inside `antigravity`, each as a separate line:
 
 ```
-/plugins marketplace add https://github.com/OPTIMETA/PAIDEIA-agy.git
+/plugins marketplace add https://github.com/YoonJae00/PAIDEIA-agy.git
 ```
 
 ```

@@ -178,7 +178,7 @@ Paideia를 샌드박스가 걸린 Antigravity 세션 안에서 실행하면, 로
 Antigravity 안에서 **각 줄을 한 번에 하나씩** 실행해 주세요.
 
 ```
-/plugins marketplace add https://github.com/OPTIMETA/PAIDEIA-agy.git
+/plugins marketplace add https://github.com/YoonJae00/PAIDEIA-agy.git
 ```
 
 ```
