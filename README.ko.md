@@ -1,8 +1,8 @@
-<h1 align="center">ΠΑΙΔΕΙΑ · Paideia <sub>(Antigravity/Codex edition)</sub></h1>
+<h1 align="center">ΠΑΙΔΕΙΑ · Paideia <sub>(Antigravity edition)</sub></h1>
 
 <p align="center">
   <strong>당신의 과목, 당신의 패턴, 당신의 오답, 당신의 치트시트.</strong><br>
-  <em>당신의 자료에서 출발해 한 과목에 영속적으로 머무는 학습 그래프를 만드는 Antigravity CLI (agy) 및 OpenAI Codex CLI 플러그인입니다 — 모든 산출물이 일반 실러버스가 아니라 당신의 손끝에서 빚어집니다.</em>
+  <em>당신의 자료에서 출발해 한 과목에 영속적으로 머무는 학습 그래프를 만드는 Antigravity CLI (agy) 및 Antigravity 플러그인입니다 — 모든 산출물이 일반 실러버스가 아니라 당신의 손끝에서 빚어집니다.</em>
 </p>
 
 <p align="center">
@@ -14,13 +14,12 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/license/OPTIMETA/PAIDEIA-codex?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="라이선스">
-  <img src="https://img.shields.io/github/stars/OPTIMETA/PAIDEIA-codex?style=flat-square&logo=github&logoColor=white&labelColor=000000&color=333333&cacheSeconds=3600" alt="GitHub 스타 수">
-  <img src="https://img.shields.io/github/last-commit/OPTIMETA/PAIDEIA-codex?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="최근 커밋">
-  <img src="https://img.shields.io/github/languages/top/OPTIMETA/PAIDEIA-codex?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="주요 언어">
+  <img src="https://img.shields.io/github/license/OPTIMETA/PAIDEIA-agy?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="라이선스">
+  <img src="https://img.shields.io/github/stars/OPTIMETA/PAIDEIA-agy?style=flat-square&logo=github&logoColor=white&labelColor=000000&color=333333&cacheSeconds=3600" alt="GitHub 스타 수">
+  <img src="https://img.shields.io/github/last-commit/OPTIMETA/PAIDEIA-agy?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="최근 커밋">
+  <img src="https://img.shields.io/github/languages/top/OPTIMETA/PAIDEIA-agy?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="주요 언어">
   &nbsp;
   <img src="https://img.shields.io/badge/Antigravity%20CLI-000000?style=flat-square&logo=google&logoColor=white&labelColor=000000&cacheSeconds=3600" alt="Antigravity CLI">
-  <img src="https://img.shields.io/badge/OpenAI%20Codex-000000?style=flat-square&logo=openai&logoColor=white&labelColor=000000&cacheSeconds=3600" alt="OpenAI Codex">
   <img src="https://img.shields.io/badge/Plugin-000000?style=flat-square&labelColor=000000&color=000000&cacheSeconds=3600" alt="Plugin">
   <img src="https://img.shields.io/badge/MCP-000000?style=flat-square&labelColor=000000&color=000000&cacheSeconds=3600" alt="MCP">
   <img src="https://img.shields.io/badge/Markdown-000000?style=flat-square&logo=markdown&logoColor=white&labelColor=000000&cacheSeconds=3600" alt="Markdown">
@@ -45,41 +44,41 @@
 
 <p align="center">
   <em>일반적인 학습 도구는 평균적인 실러버스를 가르칩니다. Paideia는 <strong>당신의</strong> 실러버스를 가르칩니다 —<br>
-  당신의 교수님 강의노트, 당신의 숙제 경향, 당신의 필기, 당신의 오답에서 출발해서요. 모든 산출물은 당신이 직접 편집할 수 있는 마크다운 �## 왜 Antigravity/Codex 에디션이 필요한가
+  당신의 교수님 강의노트, 당신의 숙제 경향, 당신의 필기, 당신의 오답에서 출발해서요. 모든 산출물은 당신이 직접 편집할 수 있는 마크다운 �## 왜 Antigravity 에디션이 필요한가
 
-> **2026-04-21 참고.** 2026년 4월 21일, Anthropic이 Pro 티어의 Claude Code 접근 권한을 없앴다는 보도가 일시적으로 돌았습니다. 이후 Anthropic은 "일부 신규 사용자 대상의 한정된 테스트였을 뿐, 전면 제한이 아니다"라고 공식적으로 정정했습니다. 이 에디션은 그 혼란 속에서 CLI-중립 대안으로 만들어져 공개되었습니다. Antigravity CLI 및 OpenAI Codex CLI는 2026년에 필요한 플러그인 기반(skills, subagents, MCP, plugins)을 모두 갖추게 되었고, 덕분에 이식은 학습 그래프를 새로 설계하는 일이 아니라 **기존 로직을 CLI의 기본 요소 위에 다시 얹는 일**로 마무리되었습니다.
+> **2026-04-21 참고.** 2026년 4월 21일, Anthropic이 Pro 티어의 Claude Code 접근 권한을 없앴다는 보도가 일시적으로 돌았습니다. 이후 Anthropic은 "일부 신규 사용자 대상의 한정된 테스트였을 뿐, 전면 제한이 아니다"라고 공식적으로 정정했습니다. 이 에디션은 그 혼란 속에서 CLI-중립 대안으로 만들어져 공개되었습니다. Antigravity CLI 및 Antigravity CLI는 2026년에 필요한 플러그인 기반(skills, subagents, MCP, plugins)을 모두 갖추게 되었고, 덕분에 이식은 학습 그래프를 새로 설계하는 일이 아니라 **기존 로직을 CLI의 기본 요소 위에 다시 얹는 일**로 마무리되었습니다.
 
 디스크 위 학습 그래프는 **바이트 단위로 동일합니다**. `course-index/patterns.md`, `errors/log.md`, `weakmap/weakmap_<ts>.md`, `cheatsheet/final.md` — Claude 에디션이 쓰는 모든 산출물을 이 에디션도 같은 포맷으로 씁니다. Claude 에디션으로 만드신 코스 폴더를 그대로 이 에디션에서 여셔도(또는 그 반대도) 마찰 없이 이어 가실 수 있습니다.
 
 ### 무엇이 바뀌었는가
 
-| 개념 | Claude Code 에디션 | Antigravity / Codex 에디션 |
+| 개념 | Claude Code 에디션 | Antigravity 에디션 |
 |---|---|---|
 | 명령 문법 | `/paideia:ingest` | `$paideia-ingest` |
 | 프로젝트 컨텍스트 파일 | `CLAUDE.md` | `AGENTS.md` |
-| 플러그인 루트 변수 | `${CLAUDE_PLUGIN_ROOT}` | `${ANTIGRAVITY_PLUGIN_ROOT}` 또는 `${CODEX_PLUGIN_ROOT}` |
+| 플러그인 루트 변수 | `${CLAUDE_PLUGIN_ROOT}` | `${ANTIGRAVITY_PLUGIN_ROOT}` 또는 `${ANTIGRAVITY_PLUGIN_ROOT}` |
 | 무거운 파이프라인이 사는 곳 | PDF별 `general-purpose` 서브에이전트 | 번들 `paideia-mcp` stdio MCP 서버 |
 | 기본 OCR | Claude 네이티브 비전(추가 설치 없음) | CLI 내장 비전 (추가 설치 없음, 별도 API 키 불필요) |
 | 로컬 OCR | `ollama` + `qwen3-vl:8b` | 동일 (`qwen3-vl`) |
 | Tesseract 최후 보루 | 있음 | 있음 |
 | Statusline 위젯 | `paideia · COURSE · D-N · phase · P<k>` | *(미포팅 — CLI에 지속 statusline 슬롯이 없습니다. 단계는 `$paideia-phase`로 조회)* |있습니다 — 어느 agentic CLI를 이미 결제 중이든 PAIDEIA를 돌릴 수 있도록 해 주는 CLI-중립 대안으로 남기 때문입니다. 두 에디션 모두 함께 관리되니, 구독 환경에 맞는 쪽을 고르시면 됩니다.
 
-PAIDEIA는 원래 Claude Code 플러그인으로 태어났습니다. 핵심 로직 — 병렬 비전 인제스트, 전략 기반 채점, *당신*의 풀이집에서 패턴을 추출하기 — 은 사실 Claude에 묶여 있던 적이 없었습니다. 대신 *어떤* agentic CLI든 "skills, subagents, plugins, 그리고 쓸만한 비전 경로"라는 네 가지 기반을 갖추기만 하면 얹을 수 있는 구조였습니다. OpenAI Codex CLI는 2026년에 그 기반(skills, subagents, MCP, plugins, `AGENTS.md`)을 모두 갖추게 되었고, 덕분에 이식은 학습 그래프를 새로 설계하는 일이 아니라 **기존 로직을 Codex의 기본 요소 위에 다시 얹는 일**로 마무리되었습니다.
+PAIDEIA는 원래 Claude Code 플러그인으로 태어났습니다. 핵심 로직 — 병렬 비전 인제스트, 전략 기반 채점, *당신*의 풀이집에서 패턴을 추출하기 — 은 사실 Claude에 묶여 있던 적이 없었습니다. 대신 *어떤* agentic CLI든 "skills, subagents, plugins, 그리고 쓸만한 비전 경로"라는 네 가지 기반을 갖추기만 하면 얹을 수 있는 구조였습니다. Antigravity CLI는 2026년에 그 기반(skills, subagents, MCP, plugins, `AGENTS.md`)을 모두 갖추게 되었고, 덕분에 이식은 학습 그래프를 새로 설계하는 일이 아니라 **기존 로직을 Antigravity의 기본 요소 위에 다시 얹는 일**로 마무리되었습니다.
 
 디스크 위 학습 그래프는 **바이트 단위로 동일합니다**. `course-index/patterns.md`, `errors/log.md`, `weakmap/weakmap_<ts>.md`, `cheatsheet/final.md` — Claude 에디션이 쓰는 모든 산출물을 이 에디션도 같은 포맷으로 씁니다. Claude 에디션으로 만드신 코스 폴더를 그대로 이 에디션에서 여셔도(또는 그 반대도) 마찰 없이 이어 가실 수 있습니다.
 
 ### 무엇이 바뀌었는가
 
-| 개념 | Claude Code 에디션 | Codex 에디션 |
+| 개념 | Claude Code 에디션 | Antigravity 에디션 |
 |---|---|---|
 | 명령 문법 | `/paideia:ingest` | `$paideia-ingest` |
 | 프로젝트 컨텍스트 파일 | `CLAUDE.md` | `AGENTS.md` |
-| 플러그인 루트 변수 | `${CLAUDE_PLUGIN_ROOT}` | `${CODEX_PLUGIN_ROOT}` |
+| 플러그인 루트 변수 | `${CLAUDE_PLUGIN_ROOT}` | `${ANTIGRAVITY_PLUGIN_ROOT}` |
 | 무거운 파이프라인이 사는 곳 | PDF별 `general-purpose` 서브에이전트 | 번들 `paideia-mcp` stdio MCP 서버 |
-| 기본 OCR | Claude 네이티브 비전(추가 설치 없음) | Codex CLI 내장 비전 (추가 설치 없음, 별도 API 키 불필요 — Codex CLI가 이미 요구하는 ChatGPT Plus/Pro/Business 구독에 포함) |
+| 기본 OCR | Claude 네이티브 비전(추가 설치 없음) | Antigravity CLI 내장 비전 (추가 설치 없음, 별도 API 키 불필요 — Antigravity CLI가 이미 요구하는 ChatGPT Plus/Pro/Business 구독에 포함) |
 | 로컬 OCR | `ollama` + `qwen3-vl:8b` | 동일 (`qwen3-vl`) |
 | Tesseract 최후 보루 | 있음 | 있음 |
-| Statusline 위젯 | `paideia · COURSE · D-N · phase · P<k>` | *(미포팅 — Codex에는 지속 statusline 슬롯이 없습니다. 단계는 `$paideia-phase`로 조회)* |
+| Statusline 위젯 | `paideia · COURSE · D-N · phase · P<k>` | *(미포팅 — Antigravity에는 지속 statusline 슬롯이 없습니다. 단계는 `$paideia-phase`로 조회)* |
 
 그 외의 것들 — 디렉토리 레이아웃, 패턴 추출 로직, 전략 채점, 숙제 밀도 기반 출제 티어링, `weakmap/`의 append-only 이력, 오답 기반 치트시트 — 은 모두 같습니다.
 
@@ -108,9 +107,9 @@ PAIDEIA는 원래 Claude Code 플러그인으로 태어났습니다. 핵심 로�
 | 자신의 이해에 대한 버전 관리 | 어떤 산출물이든 `git log` / `git diff` | 외부에 노출되지 않음 |
 | 산출물이 있는 곳 | 당신의 디스크, 텍스트 파일로 | 원격 DB, 유료 티어에서만 내보내기 |
 
-플러그인은 유료 API를 호출하는 Codex CLI로 무거운 일을 처리하지만, 그 결과물은 전부 당신 디스크 위의 평범한 마크다운입니다. 나중에 다른 모델 러너로 옮기시거나 OpenAI 구독을 잠시 중단하셔도, course-index·patterns·오답 로그·weakmap·치트시트는 여전히 당신이 열어 읽고, 수정하고, diff할 수 있습니다. 플러그인은 뼈대이고, 학습 그래프는 당신의 것입니다.
+플러그인은 유료 API를 호출하는 Antigravity CLI로 무거운 일을 처리하지만, 그 결과물은 전부 당신 디스크 위의 평범한 마크다운입니다. 나중에 다른 모델 러너로 옮기시거나 OpenAI 구독을 잠시 중단하셔도, course-index·patterns·오답 로그·weakmap·치트시트는 여전히 당신이 열어 읽고, 수정하고, diff할 수 있습니다. 플러그인은 뼈대이고, 학습 그래프는 당신의 것입니다.
 
-기본 설정에서 OCR은 Codex CLI의 **내장 비전**을 씁니다 — ChatGPT Plus/Pro/Business/Edu/Enterprise 구독에 이미 포함된 바로 그 비전입니다. 플러그인은 각 PDF 페이지를 `.paideia-cache/` 아래에 PNG로 렌더링해 Codex에게 이미지 경로를 넘기기만 합니다. 별도의 `OPENAI_API_KEY`나 추가 과금이 필요하지 않습니다. 필기 PDF를 기기 밖으로 내보내고 싶지 않으시다면 `ollama pull qwen3-vl:8b`로 약 6 GB 모델 가중치를 한 번 내려받으면, 그 뒤 모든 OCR이 로컬 Qwen3-VL 추론으로 전환됩니다. 어느 쪽을 고르시든 이후의 산출물(패턴, 커버리지, weakmap, 치트시트, 오답 로그)은 전부 당신 디스크 위의 평범한 마크다운입니다.
+기본 설정에서 OCR은 Antigravity CLI의 **내장 비전**을 씁니다 — ChatGPT Plus/Pro/Business/Edu/Enterprise 구독에 이미 포함된 바로 그 비전입니다. 플러그인은 각 PDF 페이지를 `.paideia-cache/` 아래에 PNG로 렌더링해 Antigravity에게 이미지 경로를 넘기기만 합니다. 별도의 `OPENAI_API_KEY`나 추가 과금이 필요하지 않습니다. 필기 PDF를 기기 밖으로 내보내고 싶지 않으시다면 `ollama pull qwen3-vl:8b`로 약 6 GB 모델 가중치를 한 번 내려받으면, 그 뒤 모든 OCR이 로컬 Qwen3-VL 추론으로 전환됩니다. 어느 쪽을 고르시든 이후의 산출물(패턴, 커버리지, weakmap, 치트시트, 오답 로그)은 전부 당신 디스크 위의 평범한 마크다운입니다.
 
 ---
 
@@ -138,7 +137,7 @@ Paideia의 우선순위는 이 원리를 명시적으로 반영합니다. 모든
 | **대면 (Encounter)** | 교수님이 보낸 신호를 읽습니다 | `$paideia-ingest` | `converted/**/*.md` — 모든 강의노트·교재 챕터·숙제·풀이를 깨끗한 마크다운으로 |
 | **구조화 (Structure)** | 과목 고유의 문법을 추출합니다 | `$paideia-analyze` | `course-index/{summary,patterns,coverage}.md` — 주제 트리, 반복되는 풀이 패턴 (P1..Pk), 숙제 밀도 기반 출제 티어 |
 | **연습 (Practice)** | 교수님이 실제로 시험하는 것에 가중치를 두어 능동 회상을 수행합니다 | `$paideia-quiz`, `$paideia-twin`, `$paideia-blind`, `$paideia-chain`, `$paideia-mock` | `quizzes/`, `twins/`, `chain/`, `mock/` — 종이에 풀 문제들 |
-| **성찰 (Reflection)** | 손으로 쓴 답안이 채점 결과로 바뀝니다 | `$paideia-grade` | `answers/converted/<name>.md` + `errors/log.md` — Codex 내장 비전(기본) / Qwen3-VL / Tesseract 중 선택한 엔진으로 OCR, 전략 기반 채점 |
+| **성찰 (Reflection)** | 손으로 쓴 답안이 채점 결과로 바뀝니다 | `$paideia-grade` | `answers/converted/<name>.md` + `errors/log.md` — Antigravity 내장 비전(기본) / Qwen3-VL / Tesseract 중 선택한 엔진으로 OCR, 전략 기반 채점 |
 | **진단 (Diagnosis)** | 오류를 우선순위가 매겨진 약점 리포트로 압축합니다 | `$paideia-weakmap` | `weakmap/weakmap_<ts>.md` — append-only 이력 |
 | **증류 (Distillation)** | 오류에서 출발한 한 장짜리 인쇄물을 만듭니다 | `$paideia-cheatsheet`, `$paideia-derive`, `$paideia-pattern` | `cheatsheet/final.md`, `derivations/<slug>.md` — 실제로 필요한 것만 참조 |
 
@@ -152,7 +151,7 @@ Paideia의 우선순위는 이 원리를 명시적으로 반영합니다. 모든
 
 **필수**
 
-- [OpenAI Codex CLI](https://github.com/openai/codex) (`codex`가 `PATH`에 잡혀 있어야 합니다), ChatGPT Plus / Pro / Business / Edu / Enterprise 계정으로 로그인되어 있어야 합니다 (기본 OCR 엔진이 Codex CLI 내장 비전으로 페이지 이미지를 읽습니다 — 별도의 `OPENAI_API_KEY`는 필요하지 않습니다)
+- [Antigravity CLI](https://github.com/openai/antigravity) (`antigravity`가 `PATH`에 잡혀 있어야 합니다), ChatGPT Plus / Pro / Business / Edu / Enterprise 계정으로 로그인되어 있어야 합니다 (기본 OCR 엔진이 Antigravity CLI 내장 비전으로 페이지 이미지를 읽습니다 — 별도의 `OPENAI_API_KEY`는 필요하지 않습니다)
 - Python 3.10+ (번들 MCP 서버가 파이썬으로 작성되어 있습니다)
 - Unix 계열 쉘 (`bash` / `zsh`). 부트스트랩 스킬이 heredoc·`mkdir -p`·`mktemp`·서브쉘 백그라운드 실행을 쓰기 때문에, Windows 네이티브 `cmd` / PowerShell은 현재 지원하지 않습니다.
 - **macOS**: `brew install poppler` (`tesseract` 엔진을 쓰실 계획이라면 `tesseract tesseract-lang`도 함께 설치해 주세요)
@@ -163,23 +162,23 @@ Paideia의 우선순위는 이 원리를 명시적으로 반영합니다. 모든
 
 - `ollama` + `qwen3-vl:8b` 모델 (~6 GB). macOS: `brew install ollama`. Linux: [ollama 설치 스크립트](https://ollama.com/install.sh). 이후 `ollama pull qwen3-vl:8b`.
 
-Ollama를 설치하지 않으셔도 괜찮습니다. 기본 엔진(`codex-native`)은 Codex CLI 내장 비전으로 페이지 이미지를 읽기 때문에 — 이는 당신의 ChatGPT 구독에 이미 포함된 바로 그 비전입니다 — 별도로 설치하거나 관리할 API 키가 없습니다.
+Ollama를 설치하지 않으셔도 괜찮습니다. 기본 엔진(`antigravity-native`)은 Antigravity CLI 내장 비전으로 페이지 이미지를 읽기 때문에 — 이는 당신의 ChatGPT 구독에 이미 포함된 바로 그 비전입니다 — 별도로 설치하거나 관리할 API 키가 없습니다.
 
 ### 샌드박스 안내
 
-Paideia를 샌드박스가 걸린 Codex 세션 안에서 실행하면, 로컬 엔진이나 실기동 검증 경로에서 승인 프롬프트가 뜰 수 있습니다.
+Paideia를 샌드박스가 걸린 Antigravity 세션 안에서 실행하면, 로컬 엔진이나 실기동 검증 경로에서 승인 프롬프트가 뜰 수 있습니다.
 
 - `qwen3-vl`은 로컬 Ollama HTTP 서버 `http://localhost:11434`에 접속합니다
-- `codex exec --image ...` 같은 실기동 검증 명령은 쉘 샌드박스 밖에서 돌아가야 합니다
+- `antigravity exec --image ...` 같은 실기동 검증 명령은 쉘 샌드박스 밖에서 돌아가야 합니다
 
-이 경우 Codex가 승인 요청을 띄우면 **Approve**를 눌러 주세요. Ollama와 Codex가 정상 설치되어 있어도, 이 승인을 거절하면 OCR/테스트 호출이 샌드박스에서 막혀 실패할 수 있습니다.
+이 경우 Antigravity가 승인 요청을 띄우면 **Approve**를 눌러 주세요. Ollama와 Antigravity가 정상 설치되어 있어도, 이 승인을 거절하면 OCR/테스트 호출이 샌드박스에서 막혀 실패할 수 있습니다.
 
-### Codex 플러그인 마켓플레이스로 설치
+### Antigravity 플러그인 마켓플레이스로 설치
 
-Codex 안에서 **각 줄을 한 번에 하나씩** 실행해 주세요.
+Antigravity 안에서 **각 줄을 한 번에 하나씩** 실행해 주세요.
 
 ```
-/plugins marketplace add https://github.com/OPTIMETA/PAIDEIA-codex.git
+/plugins marketplace add https://github.com/OPTIMETA/PAIDEIA-agy.git
 ```
 
 ```
@@ -192,7 +191,7 @@ Codex 안에서 **각 줄을 한 번에 하나씩** 실행해 주세요.
 
 ### 코스별 부트스트랩
 
-해당 코스용으로 쓰실 폴더 안에서 Codex CLI를 여신 뒤 다음을 실행해 주세요.
+해당 코스용으로 쓰실 폴더 안에서 Antigravity CLI를 여신 뒤 다음을 실행해 주세요.
 
 ```
 $paideia-init-course
@@ -201,12 +200,12 @@ $paideia-init-course
 이 스킬은 대화식으로 다음을 수행합니다.
 1. Python / poppler / tesseract 의존성을 확인하고, 누락된 항목은 설치를 제안합니다 (ollama는 아래 3단계에서 `qwen3-vl` 엔진을 선택하신 경우에만 점검합니다)
 2. `COURSE_NAME`, `EXAM_DATE`, `EXAM_TYPE`, `WEAK_ZONES` 값을 입력받습니다
-3. 기본 OCR 엔진을 고릅니다 — `codex-native` (Codex CLI 내장 비전으로 페이지 이미지를 직접 읽음 — 별도 API 키 불필요, 추가 과금 없음) / `qwen3-vl` (로컬 Ollama, 약 6 GB 모델을 백그라운드에서 받음) / `tesseract` (가장 가볍고 빠름, 필기 정확도는 낮음)
+3. 기본 OCR 엔진을 고릅니다 — `antigravity-native` (Antigravity CLI 내장 비전으로 페이지 이미지를 직접 읽음 — 별도 API 키 불필요, 추가 과금 없음) / `qwen3-vl` (로컬 Ollama, 약 6 GB 모델을 백그라운드에서 받음) / `tesseract` (가장 가볍고 빠름, 필기 정확도는 낮음)
 4. 디렉토리 골격을 생성합니다 (`materials/`, `converted/`, `course-index/`, `quizzes/`, `mock/`, `twins/`, `chain/`, `derivations/`, `cheatsheet/`, `weakmap/`, `answers/converted/`, `errors/`)
 5. `.course-meta`(`OCR_ENGINE`을 담고 있으며 `$paideia-grade`가 이 값을 읽습니다)와 프로젝트 수준 `AGENTS.md`를 작성합니다
 6. 필요하면 `git init`을 수행하고, PAIDEIA 관리용 `.gitignore` 규칙을 병합해 첫 키 입력부터 준비 과정이 버전 관리되도록 합니다
 
-개별 채점 호출에서는 엔진을 그때그때 덮어쓰실 수 있습니다. 예: `$paideia-grade --ocr=codex-native path/to/answer.pdf`.
+개별 채점 호출에서는 엔진을 그때그때 덮어쓰실 수 있습니다. 예: `$paideia-grade --ocr=antigravity-native path/to/answer.pdf`.
 
 ---
 
@@ -217,7 +216,7 @@ $paideia-init-course
 ```
 my-course/
 ├── .course-meta                     # 코스명, 시험일, OCR 엔진 설정
-├── AGENTS.md                        # Codex가 매 턴 읽는 프로젝트 규칙
+├── AGENTS.md                        # Antigravity가 매 턴 읽는 프로젝트 규칙
 ├── .gitignore                       # 원본 답안 PDF, OCR 임시물, 선택적 PDF 산출물 제외
 │
 ├── materials/                       # 직접 원본을 넣는 곳 (PDF 또는 MD)
@@ -289,7 +288,7 @@ cp ~/hw/hw*.pdf             ~/courses/my-course/materials/homework/
 cp ~/hw/hw*_sol.pdf         ~/courses/my-course/materials/solutions/
 ```
 
-Codex CLI에서:
+Antigravity CLI에서:
 
 ```
 $paideia-ingest                     # 모든 PDF → paideia-mcp 병렬 비전 파이프라인, LaTeX 충실
@@ -302,7 +301,7 @@ $paideia-hwmap hot                  # 🔥🔥 exam-primary 영역 띄우기
 ```
 $paideia-quiz all 20                # 광범위 진단, 20문항
 # 종이에 풀고 (40분), answers/diagnostic.pdf로 스캔
-$paideia-grade                      # codex-native OCR (Codex가 페이지 이미지를 직접 읽음) + 전략 채점
+$paideia-grade                      # antigravity-native OCR (Antigravity가 페이지 이미지를 직접 읽음) + 전략 채점
 ```
 
 ### Phase 2 — 타겟 드릴링 (준비 시간의 대부분)
@@ -354,7 +353,7 @@ $paideia-weakmap                    # 상위 3개만. 새로운 것을 배우지
 | `$paideia-twin <problem-id>` | 같은 패턴, 새 표면의 변형 문제 |
 | `$paideia-chain <N>` | N개 패턴을 묶은 통합 문제 |
 | `$paideia-mock <분>` | 숙제 밀도 가중 모의고사 전체 |
-| `$paideia-grade [--ocr=<engine>] [경로]` | `.course-meta`의 엔진 선택(Codex 내장 비전 / Qwen3-VL / Tesseract)으로 OCR 후 전략 채점, `errors/log.md`에 누적 기록 |
+| `$paideia-grade [--ocr=<engine>] [경로]` | `.course-meta`의 엔진 선택(Antigravity 내장 비전 / Qwen3-VL / Tesseract)으로 OCR 후 전략 채점, `errors/log.md`에 누적 기록 |
 | `$paideia-weakmap [개념]` | `weakmap/weakmap_<ts>.md`에 저장되는 우선순위 약점 리포트 |
 | `$paideia-cheatsheet [--pdf]` | 오류 주도 한 장짜리 치트시트 |
 | `$paideia-alt [붙여넣기]` | OPTIMETA Exam Radar(Alt 플러그인) 내보내기를 임포트 → `course-index/radar.md` + `coverage.md`의 강의 강조 열 + 골드존 weakmap |
@@ -365,16 +364,16 @@ $paideia-weakmap                    # 상위 3개만. 새로운 것을 배우지
 
 ### MCP 서버: `paideia-mcp`
 
-Claude 에디션은 병렬 비전 인제스트를 PDF당 `general-purpose` 서브에이전트로 몰아서 처리했습니다. Codex에도 서브에이전트가 있지만 작업 단위가 더 무겁고, Codex의 `view_image` 도구는 이미지마다 사용자의 명시적 동의를 요구합니다 — 200페이지짜리 교재를 인제스트하는 일에는 어느 쪽도 맞지 않습니다. 그래서 Codex 에디션은 무거운 일을 **번들 stdio MCP 서버**인 `paideia-mcp`로 옮겼고, 스킬이 처음 MCP를 호출하는 순간 Codex가 이 서버를 자동으로 스폰합니다. 노출되는 도구는 네 개입니다.
+Claude 에디션은 병렬 비전 인제스트를 PDF당 `general-purpose` 서브에이전트로 몰아서 처리했습니다. Antigravity에도 서브에이전트가 있지만 작업 단위가 더 무겁고, Antigravity의 `view_image` 도구는 이미지마다 사용자의 명시적 동의를 요구합니다 — 200페이지짜리 교재를 인제스트하는 일에는 어느 쪽도 맞지 않습니다. 그래서 Antigravity 에디션은 무거운 일을 **번들 stdio MCP 서버**인 `paideia-mcp`로 옮겼고, 스킬이 처음 MCP를 호출하는 순간 Antigravity가 이 서버를 자동으로 스폰합니다. 노출되는 도구는 네 개입니다.
 
 | 도구 | 하는 일 |
 |------|------|
-| `ingest_pdfs` | `materials/**/*.pdf`를 전부 PNG로 렌더링하고, 긴 변을 ≤1800 px로 축소한 뒤, (a) `engine=codex-native`일 때는 호출한 스킬에게 페이지 경로를 되돌려 주고 (스킬이 Codex CLI 내장 비전으로 직접 페이지를 읽습니다), (b) `engine=qwen3-vl` / `tesseract`일 때는 MCP 안에서 OCR을 돌려 LaTeX 마크다운을 `converted/**`에 기록합니다. `ProcessPoolExecutor`로 결정적 fan-out을 수행하며, PDF 단위로 재개(resume) 가능합니다. |
-| `grade_pdf` | 필기 답안 PDF 한 건에 대해서도 같은 이중 모드: `codex-native`는 페이지를 PNG로 렌더링하고 경로를 돌려 줍니다. `qwen3-vl` / `tesseract`는 MCP 내부에서 OCR을 돌려 `answers/converted/<stem>.md`를 만들고 신뢰도 티어와 함께 반환합니다. |
+| `ingest_pdfs` | `materials/**/*.pdf`를 전부 PNG로 렌더링하고, 긴 변을 ≤1800 px로 축소한 뒤, (a) `engine=antigravity-native`일 때는 호출한 스킬에게 페이지 경로를 되돌려 주고 (스킬이 Antigravity CLI 내장 비전으로 직접 페이지를 읽습니다), (b) `engine=qwen3-vl` / `tesseract`일 때는 MCP 안에서 OCR을 돌려 LaTeX 마크다운을 `converted/**`에 기록합니다. `ProcessPoolExecutor`로 결정적 fan-out을 수행하며, PDF 단위로 재개(resume) 가능합니다. |
+| `grade_pdf` | 필기 답안 PDF 한 건에 대해서도 같은 이중 모드: `antigravity-native`는 페이지를 PNG로 렌더링하고 경로를 돌려 줍니다. `qwen3-vl` / `tesseract`는 MCP 내부에서 OCR을 돌려 `answers/converted/<stem>.md`를 만들고 신뢰도 티어와 함께 반환합니다. |
 | `build_course_index` | `converted/**`를 읽어 기계 생성 초안 `course-index/{summary,patterns,coverage}.md`를 쓰고, 그 초안을 상위 analyze 스킬이 다듬을 수 있도록 인벤토리도 함께 반환합니다. |
 | `course_phase` | 디스크 위 산출물에서 현재 단계(setup → diag → drill → mock → cram → cool)를 도출해 `{phase, days_until_exam, top_miss_pattern}`을 반환합니다. `$paideia-phase`가 이 도구를 호출하며, 사이클 위치를 알아야 하는 다른 스킬들도 함께 씁니다. |
 
-스킬 본체는 얇게(오케스트레이션 ~40–80 줄) 유지됩니다 — 인수 파싱, 올바른 MCP 도구 호출, 결과 요약. 원시 페이지 이미지는 절대 Codex의 컨텍스트로 들어오지 않습니다.
+스킬 본체는 얇게(오케스트레이션 ~40–80 줄) 유지됩니다 — 인수 파싱, 올바른 MCP 도구 호출, 결과 요약. 원시 페이지 이미지는 절대 Antigravity의 컨텍스트로 들어오지 않습니다.
 
 ### 인제스트 파이프라인: 모든 PDF를 비전으로
 
@@ -393,13 +392,13 @@ Claude 에디션은 병렬 비전 인제스트를 PDF당 `general-purpose` 서�
 
 | 엔진 | 기본값? | 동작 방식 | 이럴 때 고르세요 |
 |---|---|---|---|
-| `codex-native` | **예** | `paideia-mcp.grade_pdf`가 각 페이지를 `answers/.paideia-cache/<stem>/` 아래의 PNG로 렌더링한 뒤, 경로 목록을 되돌려 줍니다. Codex CLI가 자신의 내장 비전으로 직접 페이지를 읽습니다 — 바로 ChatGPT Plus/Pro/Business 구독에 이미 포함된 그 비전입니다. `OPENAI_API_KEY`도 별도 API 과금도 없습니다. | 기본 경로이자 가장 마찰이 적은 경로. 한국어·LaTeX·필기 수식 모두 강하고, 로컬 모델 로딩 지연도 없고, 이중 과금도 없습니다. |
+| `antigravity-native` | **예** | `paideia-mcp.grade_pdf`가 각 페이지를 `answers/.paideia-cache/<stem>/` 아래의 PNG로 렌더링한 뒤, 경로 목록을 되돌려 줍니다. Antigravity CLI가 자신의 내장 비전으로 직접 페이지를 읽습니다 — 바로 ChatGPT Plus/Pro/Business 구독에 이미 포함된 그 비전입니다. `OPENAI_API_KEY`도 별도 API 과금도 없습니다. | 기본 경로이자 가장 마찰이 적은 경로. 한국어·LaTeX·필기 수식 모두 강하고, 로컬 모델 로딩 지연도 없고, 이중 과금도 없습니다. |
 | `qwen3-vl` | 선택 | Ollama HTTP API로 로컬 Qwen3-VL 8B를 호출하며, 실패 시 자동으로 tesseract로 폴백합니다. | 페이지 이미지조차 기기 밖으로 내보내고 싶지 않으실 때. 최초 `ollama pull qwen3-vl:8b` (~6 GB)가 필요합니다. |
 | `tesseract` | 선택 | 설치된 `pytesseract` 언어팩 중 `eng` / `kor`를 자동 감지해서 사용합니다 (하나만 설치돼 있으면 그 언어로 폴백). | 가장 빠르고 가볍습니다. 타이핑된 스캔엔 괜찮고, 필기엔 정확도가 낮습니다. |
 
 세 엔진 모두 `answers/converted/<stem>.md`에 `<!-- source: ... -->` / `<!-- tier: ... -->` 헤더 코멘트를 남기므로, `$paideia-grade`가 OCR 신뢰도가 낮을 때 그에 맞게 태도를 바꿀 수 있습니다.
 
-기본 엔진(`codex-native`)은 의도적으로 가장 마찰이 적고 가장 비용이 적은 선택으로 잡았습니다 — 이미 Codex CLI를 쓰신다는 건 ChatGPT 구독 비용을 내고 계시다는 뜻이고, 그 구독에 비전이 포함되어 있기 때문에 기본 엔진은 추가 설치도 이중 과금도 요구하지 않습니다. `qwen3-vl` 엔진은 페이지 이미지 자체에 대해 단단한 프라이버시 경계를 원하실 때를 위해, `tesseract` 엔진은 다른 엔진을 쓸 수 없을 때의 안정적인 하한선으로 남겨져 있습니다.
+기본 엔진(`antigravity-native`)은 의도적으로 가장 마찰이 적고 가장 비용이 적은 선택으로 잡았습니다 — 이미 Antigravity CLI를 쓰신다는 건 ChatGPT 구독 비용을 내고 계시다는 뜻이고, 그 구독에 비전이 포함되어 있기 때문에 기본 엔진은 추가 설치도 이중 과금도 요구하지 않습니다. `qwen3-vl` 엔진은 페이지 이미지 자체에 대해 단단한 프라이버시 경계를 원하실 때를 위해, `tesseract` 엔진은 다른 엔진을 쓸 수 없을 때의 안정적인 하한선으로 남겨져 있습니다.
 
 ### 라인 단위가 아닌, 전략 기반 채점
 
@@ -425,7 +424,7 @@ Claude 에디션은 병렬 비전 인제스트를 PDF당 `general-purpose` 서�
 
 ### 단계 감지
 
-Codex는 Claude Code처럼 지속되는 statusline 슬롯을 노출하지 않기 때문에, Claude 에디션이 그 자리에 그려 주던 네온 한 줄은 이식되지 않았습니다. 다만 그 뒤에 있던 단계 감지 로직 자체는 고유한 동사로 노출되어 있습니다.
+Antigravity는 Claude Code처럼 지속되는 statusline 슬롯을 노출하지 않기 때문에, Claude 에디션이 그 자리에 그려 주던 네온 한 줄은 이식되지 않았습니다. 다만 그 뒤에 있던 단계 감지 로직 자체는 고유한 동사로 노출되어 있습니다.
 
 ```
 $paideia-phase
@@ -447,13 +446,13 @@ $paideia-phase
 ## 배포물
 
 ```
-PAIDEIA-codex/
-├── .agents/plugins/marketplace.json     # 마켓플레이스 매니페스트 (Codex)
+PAIDEIA-agy/
+├── .agents/plugins/marketplace.json     # 마켓플레이스 매니페스트 (Antigravity)
 ├── LICENSE                              # MIT
 ├── README.md                            # 영문
 ├── README.ko.md                         # 본 파일
 └── plugins/paideia/
-    ├── .codex-plugin/plugin.json        # 플러그인 매니페스트 (name, version, author)
+    ├── .antigravity-plugin/plugin.json        # 플러그인 매니페스트 (name, version, author)
     ├── .mcp.json                        # paideia-mcp 스폰 설정
     ├── README.md                        # 빠른 참조 카드
     ├── paideia-mcp/                     # 번들 stdio MCP 서버
@@ -493,14 +492,14 @@ PAIDEIA-codex/
 
 ## 설계 원칙
 
-1. **터미널은 수식 읽기에 나쁩니다.** Codex는 마크다운 파일을 만들고, 당신은 그것을 (가능하면 Obsidian에서) 읽습니다.
-2. **풀이를 타이핑하는 일은 느리고 오류에 취약합니다.** 종이에 풀고 스캔하면, 플러그인이 (로컬로, 또는 ChatGPT 구독에 이미 포함된 Codex CLI 내장 비전을 통해 추가 과금 없이) OCR을 처리합니다.
+1. **터미널은 수식 읽기에 나쁩니다.** Antigravity는 마크다운 파일을 만들고, 당신은 그것을 (가능하면 Obsidian에서) 읽습니다.
+2. **풀이를 타이핑하는 일은 느리고 오류에 취약합니다.** 종이에 풀고 스캔하면, 플러그인이 (로컬로, 또는 ChatGPT 구독에 이미 포함된 Antigravity CLI 내장 비전을 통해 추가 과금 없이) OCR을 처리합니다.
 3. **OCR 잡음은 피할 수 없습니다.** 그래서 채점은 전략 기반(패턴 / 변수 / 최종 형태)으로 이뤄집니다 — 라인별 대수 검증이 아니라요. 실제 시험 채점자가 보는 것과 동일한 관점이기도 합니다.
 4. **패턴은 *당신 과목의* 풀이에서 추출되어야 합니다** — 범용 목록에서가 아니라요. 각 분야는 고유한 관용구를 가지며, 그 관용구는 해당 과목 자신을 통해서만 드러납니다.
 5. **당신의 오류는 가장 가치 있는 학습 신호입니다** — 교과서보다, 강의보다 더요. 치트시트는 실러버스가 아니라 `errors/log.md`에서 생성됩니다.
 6. **숙제 밀도가 시험을 알려 줍니다.** 당신의 시간은 유한하니, 점수가 있는 곳에 쓰세요.
 7. **모든 것이 직접 편집 가능합니다.** 패턴·weakmap·치트시트·오답 로그 전부 당신 git 이력 안의 평범한 마크다운/YAML입니다. `P3`이 틀린 것 같으면 고쳐 쓰시면, 다음 드릴부터 그 수정본이 사용됩니다. 지난 학기 과목 폴더를 fork해서 이번 학기용으로 차이만 수정하셔도 됩니다. 플러그인은 뼈대이고, 학습 그래프는 당신의 것입니다.
-8. **무거운 파이프라인은 스킬 본체가 아니라 MCP에 삽니다.** 병렬 비전 인제스트, 다중 엔진 OCR 디스패치, 패턴 추출, 단계 감지는 모두 `paideia-mcp` 안에 구현되어 있고 스킬은 그 위에서 오케스트레이션만 담당합니다. 덕분에 스킬 본체가 손으로 감사 가능한 길이로 유지되고, 원시 페이지 이미지가 Codex의 컨텍스트에 들어오지도 않습니다.
+8. **무거운 파이프라인은 스킬 본체가 아니라 MCP에 삽니다.** 병렬 비전 인제스트, 다중 엔진 OCR 디스패치, 패턴 추출, 단계 감지는 모두 `paideia-mcp` 안에 구현되어 있고 스킬은 그 위에서 오케스트레이션만 담당합니다. 덕분에 스킬 본체가 손으로 감사 가능한 길이로 유지되고, 원시 페이지 이미지가 Antigravity의 컨텍스트에 들어오지도 않습니다.
 
 ---
 
@@ -519,25 +518,25 @@ PAIDEIA-codex/
 네. 산출물을 평범한 마크다운으로 두는 이유가 정확히 그것입니다. `P3`이 틀린 것 같으면 `course-index/patterns.md`를 열어 다시 쓰시면 됩니다 — 이후 드릴은 그 수정본을 사용합니다. 치트시트가 엉뚱한 걸 강조한다면 잘라 내시면 됩니다. 플러그인은 뼈대이고, 학습 그래프의 모양은 당신이 잡으십니다.
 
 **Ollama / Qwen3-VL이 꼭 필요한가요?**
-아니요. 기본 엔진은 `codex-native`로, Codex CLI 내장 비전으로 페이지 이미지를 읽습니다 — 이는 당신의 ChatGPT Plus/Pro/Business/Edu/Enterprise 구독에 이미 포함된 바로 그 비전입니다. 별도 API 키도, 추가 설치도 필요하지 않습니다. Ollama + `qwen3-vl:8b`는 페이지 이미지까지 기기 안에 붙잡아 두고 싶으실 때를 위한 선택 경로입니다. `tesseract`는 설치를 최소로 하고 싶거나 타이핑된 스캔만 다루실 때를 위한 세 번째 옵션입니다.
+아니요. 기본 엔진은 `antigravity-native`로, Antigravity CLI 내장 비전으로 페이지 이미지를 읽습니다 — 이는 당신의 ChatGPT Plus/Pro/Business/Edu/Enterprise 구독에 이미 포함된 바로 그 비전입니다. 별도 API 키도, 추가 설치도 필요하지 않습니다. Ollama + `qwen3-vl:8b`는 페이지 이미지까지 기기 안에 붙잡아 두고 싶으실 때를 위한 선택 경로입니다. `tesseract`는 설치를 최소로 하고 싶거나 타이핑된 스캔만 다루실 때를 위한 세 번째 옵션입니다.
 
 **별도의 `OPENAI_API_KEY`가 필요한가요?**
-아니요. Codex CLI는 "Sign in with ChatGPT"로 인증하며, 비전은 구독의 일부로 이미 번들되어 있습니다. Paideia의 기본 엔진은 Codex에게 페이지 이미지를 넘길 뿐이고, 별도의 유료 API를 호출하지 않습니다. (기존의 `openai-vision` 엔진은 별도 키로 Responses API를 따로 호출했는데, Codex 사용자가 이미 지불하고 있는 구독과 이중 과금이 되는 구조라 제거되었습니다.)
+아니요. Antigravity CLI는 "Sign in with ChatGPT"로 인증하며, 비전은 구독의 일부로 이미 번들되어 있습니다. Paideia의 기본 엔진은 Antigravity에게 페이지 이미지를 넘길 뿐이고, 별도의 유료 API를 호출하지 않습니다. (기존의 `openai-vision` 엔진은 별도 키로 Responses API를 따로 호출했는데, Antigravity 사용자가 이미 지불하고 있는 구독과 이중 과금이 되는 구조라 제거되었습니다.)
 
 **`qwen3-vl:8b`를 선택했는데 제 기기가 감당하지 못하면요?**
-MCP 서버의 OCR 디스패처가 Ollama 실패 시 자동으로 tesseract로 폴백합니다. 또는 `.course-meta`의 `OCR_ENGINE`을 `codex-native`로 바꾸시거나 `--ocr=codex-native`를 붙이시면 Ollama를 완전히 우회할 수 있습니다.
+MCP 서버의 OCR 디스패처가 Ollama 실패 시 자동으로 tesseract로 폴백합니다. 또는 `.course-meta`의 `OCR_ENGINE`을 `antigravity-native`로 바꾸시거나 `--ocr=antigravity-native`를 붙이시면 Ollama를 완전히 우회할 수 있습니다.
 
 **여러 과목에서 재사용할 수 있나요?**
-네 — 각 과목은 자신만의 폴더 안에 자신의 `.course-meta`, `course-index/`, `errors/log.md`, `weakmap/`을 가집니다. 과목 간에 공유되거나 섞이는 것이 없습니다. 그때그때 작업하실 과목 폴더 안에서 Codex CLI를 여시면 됩니다.
+네 — 각 과목은 자신만의 폴더 안에 자신의 `.course-meta`, `course-index/`, `errors/log.md`, `weakmap/`을 가집니다. 과목 간에 공유되거나 섞이는 것이 없습니다. 그때그때 작업하실 과목 폴더 안에서 Antigravity CLI를 여시면 됩니다.
 
 **LLM이 매긴 채점 결과를 믿어도 되나요?**
 채점은 전략 기반(대수식 검증이 아니라 패턴 매칭)이며, 채점기는 `course-index/patterns.md`의 패턴을 인용하고, 모든 채점은 `errors/log.md`에 감사 가능한 YAML 항목으로 남습니다. 혹시 채점이 잘못되었다면 해당 YAML 항목만 수정하시면 됩니다 — 다음 `$paideia-weakmap`이 수정 사항을 반영합니다.
 
 **제 데이터는 외부로 나가지 않나요?**
-PDF·마크다운·오답 로그·weakmap은 모두 로컬 코스 폴더 안에만 머물며, 플러그인 자체는 어떤 제3자 서비스로도 업로드하지 않습니다. 네트워크 트래픽은 선택하신 OCR 엔진에 따라 달라집니다. `codex-native`(기본)를 고르시면 페이지 이미지는 Codex CLI 자체의 비전이 읽습니다 — Codex가 다른 모든 턴에서 이미 쓰고 있는 동일한 보안 채널을 그대로 사용할 뿐이고, 새로 개설되는 외부 연결이 없습니다. `qwen3-vl`을 고르시면 최초 모델 다운로드 이후에는 어떠한 데이터도 기기 밖으로 나가지 않습니다. `tesseract`는 아무 때도 네트워크를 타지 않습니다.
+PDF·마크다운·오답 로그·weakmap은 모두 로컬 코스 폴더 안에만 머물며, 플러그인 자체는 어떤 제3자 서비스로도 업로드하지 않습니다. 네트워크 트래픽은 선택하신 OCR 엔진에 따라 달라집니다. `antigravity-native`(기본)를 고르시면 페이지 이미지는 Antigravity CLI 자체의 비전이 읽습니다 — Antigravity가 다른 모든 턴에서 이미 쓰고 있는 동일한 보안 채널을 그대로 사용할 뿐이고, 새로 개설되는 외부 연결이 없습니다. `qwen3-vl`을 고르시면 최초 모델 다운로드 이후에는 어떠한 데이터도 기기 밖으로 나가지 않습니다. `tesseract`는 아무 때도 네트워크를 타지 않습니다.
 
 **Claude Code 에디션과 산출물을 공유할 수 있나요?**
-네. 디스크 레이아웃이 바이트 단위로 호환됩니다. Claude 에디션이 초기화한 코스 폴더는 Codex 에디션에서도 그대로 열리며(기존 `CLAUDE.md` 옆에 `AGENTS.md`만 하나 더 있으면 됩니다 — `$paideia-init-course`가 생성해 드립니다), 그 반대도 마찬가지입니다. 한 에디션에서 기록된 오답이 다른 에디션의 weakmap으로 그대로 흘러갑니다 — 변환이 필요하지 않습니다.
+네. 디스크 레이아웃이 바이트 단위로 호환됩니다. Claude 에디션이 초기화한 코스 폴더는 Antigravity 에디션에서도 그대로 열리며(기존 `CLAUDE.md` 옆에 `AGENTS.md`만 하나 더 있으면 됩니다 — `$paideia-init-course`가 생성해 드립니다), 그 반대도 마찬가지입니다. 한 에디션에서 기록된 오답이 다른 에디션의 weakmap으로 그대로 흘러갑니다 — 변환이 필요하지 않습니다.
 
 ---
 

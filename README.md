@@ -1,8 +1,8 @@
-<h1 align="center">ΠΑΙΔΕΙΑ · Paideia <sub>(Antigravity/Codex edition)</sub></h1>
+<h1 align="center">ΠΑΙΔΕΙΑ · Paideia <sub>(Antigravity edition)</sub></h1>
 
 <p align="center">
   <strong>Your course. Your patterns. Your errors. Your cheatsheet.</strong><br>
-  <em>An Antigravity CLI (agy) and OpenAI Codex CLI plugin that turns your own materials into a permanent, editable, per-course study graph — every artifact shaped by you, not by a generic syllabus.</em>
+  <em>An Antigravity CLI (agy) and Antigravity CLI plugin that turns your own materials into a permanent, editable, per-course study graph — every artifact shaped by you, not by a generic syllabus.</em>
 </p>
 
 <p align="center">
@@ -14,13 +14,12 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/license/OPTIMETA/PAIDEIA-codex?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="License">
-  <img src="https://img.shields.io/github/stars/OPTIMETA/PAIDEIA-codex?style=flat-square&logo=github&logoColor=white&labelColor=000000&color=333333&cacheSeconds=3600" alt="GitHub stars">
-  <img src="https://img.shields.io/github/last-commit/OPTIMETA/PAIDEIA-codex?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="Last commit">
-  <img src="https://img.shields.io/github/languages/top/OPTIMETA/PAIDEIA-codex?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="Top language">
+  <img src="https://img.shields.io/github/license/OPTIMETA/PAIDEIA-agy?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="License">
+  <img src="https://img.shields.io/github/stars/OPTIMETA/PAIDEIA-agy?style=flat-square&logo=github&logoColor=white&labelColor=000000&color=333333&cacheSeconds=3600" alt="GitHub stars">
+  <img src="https://img.shields.io/github/last-commit/OPTIMETA/PAIDEIA-agy?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="Last commit">
+  <img src="https://img.shields.io/github/languages/top/OPTIMETA/PAIDEIA-agy?style=flat-square&labelColor=000000&color=333333&cacheSeconds=3600" alt="Top language">
   &nbsp;
   <img src="https://img.shields.io/badge/Antigravity%20CLI-000000?style=flat-square&logo=google&logoColor=white&labelColor=000000&cacheSeconds=3600" alt="Antigravity CLI">
-  <img src="https://img.shields.io/badge/OpenAI%20Codex-000000?style=flat-square&logo=openai&logoColor=white&labelColor=000000&cacheSeconds=3600" alt="OpenAI Codex">
   <img src="https://img.shields.io/badge/Plugin-000000?style=flat-square&labelColor=000000&color=000000&cacheSeconds=3600" alt="Plugin">
   <img src="https://img.shields.io/badge/MCP-000000?style=flat-square&labelColor=000000&color=000000&cacheSeconds=3600" alt="MCP">
   <img src="https://img.shields.io/badge/Markdown-000000?style=flat-square&logo=markdown&logoColor=white&labelColor=000000&cacheSeconds=3600" alt="Markdown">
@@ -68,19 +67,19 @@ Every stage produces a markdown artifact that lives in your course folder foreve
 
 ---
 
-## Why an Antigravity/Codex edition
+## Why an Antigravity edition
 
-> **2026-04-21 note.** On April 21, 2026, scattered reports suggested Anthropic had revoked Claude Code access for the Pro tier. Anthropic later clarified that this was only a limited test rolled out to a subset of new users — not a wholesale restriction. This edition was built as a CLI-agnostic alternative that lets you run PAIDEIA under whichever agentic CLI you already use. Both Antigravity CLI and OpenAI Codex CLI grew those plugin affordances (skills, subagents, MCP, plugins) in 2026, so the port was a matter of re-homing the logic onto the CLI's primitives.
+> **2026-04-21 note.** On April 21, 2026, scattered reports suggested Anthropic had revoked Claude Code access for the Pro tier. Anthropic later clarified that this was only a limited test rolled out to a subset of new users — not a wholesale restriction. This edition was built as a CLI-agnostic alternative that lets you run PAIDEIA under whichever agentic CLI you already use. Both Antigravity CLI and Antigravity CLI grew those plugin affordances (skills, subagents, MCP, plugins) in 2026, so the port was a matter of re-homing the logic onto the CLI's primitives.
 
 The study graph on disk is **byte-for-byte the same**. `course-index/patterns.md`, `errors/log.md`, `weakmap/weakmap_<ts>.md`, `cheatsheet/final.md` — all the artifacts the Claude edition writes, this edition also writes, in the same format. Fork a course folder from the Claude edition into this one (or vice versa) and the new runner picks up without friction.
 
 ### What moved
 
-| Concept | Claude Code edition | Antigravity / Codex edition |
+| Concept | Claude Code edition | Antigravity edition |
 |---|---|---|
 | Verb syntax | `/paideia:ingest` | `$paideia-ingest` |
 | Project context file | `CLAUDE.md` | `AGENTS.md` |
-| Plugin-root variable | `${CLAUDE_PLUGIN_ROOT}` | `${ANTIGRAVITY_PLUGIN_ROOT}` or `${CODEX_PLUGIN_ROOT}` |
+| Plugin-root variable | `${CLAUDE_PLUGIN_ROOT}` | `${ANTIGRAVITY_PLUGIN_ROOT}` or `${ANTIGRAVITY_PLUGIN_ROOT}` |
 | Heavy pipeline host | Per-PDF `general-purpose` subagents | Bundled `paideia-mcp` stdio MCP server |
 | Default OCR | Claude's native vision (no install) | CLI's native vision (no install; no extra API key) |
 | Local OCR | `ollama` + `qwen3-vl:8b` | same (`qwen3-vl`) |
@@ -114,9 +113,9 @@ None of them *form* understanding around the specific material in front of you. 
 | Version history of your own understanding | `git log` / `git diff` any artifact | Not surfaced |
 | Where the artifacts live | Your disk, as text | Remote DB, exportable only with paid tier |
 
-The plugin uses Codex CLI (which calls paid OpenAI APIs) to do the heavy lifting, but everything it produces lives on your disk as plain markdown. If you later switch to a different model runner, or pause your OpenAI subscription, the course-index, patterns, error log, weakmaps, and cheatsheets are all still yours to open, read, edit, and diff. The scaffold is the plugin; the study graph is yours.
+The plugin uses Antigravity CLI (which calls paid OpenAI APIs) to do the heavy lifting, but everything it produces lives on your disk as plain markdown. If you later switch to a different model runner, or pause your OpenAI subscription, the course-index, patterns, error log, weakmaps, and cheatsheets are all still yours to open, read, edit, and diff. The scaffold is the plugin; the study graph is yours.
 
-By default, OCR uses Codex CLI's **built-in vision** — the same vision ChatGPT Plus/Pro/Business/Edu/Enterprise subscribers already pay for via their subscription. The plugin just rasterizes each PDF page to PNG under `.paideia-cache/` and hands Codex the image paths to read directly. No separate `OPENAI_API_KEY`, no additional API billing. If you'd rather the handwritten PDFs never leave the machine, `ollama pull qwen3-vl:8b` is a one-time ~6 GB download that flips every subsequent OCR pass to local Qwen3-VL inference. Either way, everything downstream — patterns, coverage, weakmaps, cheatsheets, the error log — is plain markdown on your disk.
+By default, OCR uses Antigravity CLI's **built-in vision** — the same vision ChatGPT Plus/Pro/Business/Edu/Enterprise subscribers already pay for via their subscription. The plugin just rasterizes each PDF page to PNG under `.paideia-cache/` and hands Antigravity the image paths to read directly. No separate `OPENAI_API_KEY`, no additional API billing. If you'd rather the handwritten PDFs never leave the machine, `ollama pull qwen3-vl:8b` is a one-time ~6 GB download that flips every subsequent OCR pass to local Qwen3-VL inference. Either way, everything downstream — patterns, coverage, weakmaps, cheatsheets, the error log — is plain markdown on your disk.
 
 ---
 
@@ -144,13 +143,13 @@ Paideia's ranking is explicit about this, and every drill skill honors it by def
 | **Encounter** | Read the professor's signal | `$paideia-ingest` | `converted/**/*.md` — every lecture, textbook chapter, HW, solution, as clean markdown |
 | **Structure** | Extract the grammar of the course | `$paideia-analyze` | `course-index/{summary,patterns,coverage}.md` — topic tree, recurring solution patterns (P1..Pk), HW-density exam-tier ranking |
 | **Practice** | Active recall weighted by what the professor actually tests | `$paideia-quiz`, `$paideia-twin`, `$paideia-blind`, `$paideia-chain`, `$paideia-mock` | `quizzes/`, `twins/`, `chain/`, `mock/` — problems you solve on paper |
-| **Reflection** | Your hand-written work becomes a grade | `$paideia-grade` | `answers/converted/<name>.md` + `errors/log.md` — OCR via Codex's bundled vision (default), Qwen3-VL, or Tesseract; then strategy-based grading |
+| **Reflection** | Your hand-written work becomes a grade | `$paideia-grade` | `answers/converted/<name>.md` + `errors/log.md` — OCR via Antigravity's bundled vision (default), Qwen3-VL, or Tesseract; then strategy-based grading |
 | **Diagnosis** | Errors compressed into a priority-ranked weakness report | `$paideia-weakmap` | `weakmap/weakmap_<ts>.md` — append-only history |
 | **Distillation** | One page, error-driven, printable | `$paideia-cheatsheet`, `$paideia-derive`, `$paideia-pattern` | `cheatsheet/final.md`, `derivations/<slug>.md` — reference only what you actually need |
 
 Supporting: `$paideia-hwmap` surfaces HW-density exam-probability, `$paideia-init-course` bootstraps a fresh course folder, `$paideia-phase` reports which stage of the cycle the folder is in.
 
-<p align="center"><sub><em>The same plugin, opened from inside the Codex desktop app — analyze + derive artifacts render side by side as the agent emits them:</em></sub></p>
+<p align="center"><sub><em>The same plugin, opened from inside the Antigravity app — analyze + derive artifacts render side by side as the agent emits them:</em></sub></p>
 
 <table>
   <tr>
@@ -183,7 +182,7 @@ Supporting: `$paideia-hwmap` surfaces HW-density exam-probability, `$paideia-ini
 
 **Required**
 
-- [OpenAI Codex CLI](https://github.com/openai/codex) (`codex` on `PATH`), signed in with a ChatGPT Plus / Pro / Business / Edu / Enterprise account (the default OCR engine reads page images via Codex CLI's bundled vision — no separate `OPENAI_API_KEY` needed)
+- [Antigravity CLI](https://github.com/openai/antigravity) (`antigravity` on `PATH`), signed in with a ChatGPT Plus / Pro / Business / Edu / Enterprise account (the default OCR engine reads page images via Antigravity CLI's bundled vision — no separate `OPENAI_API_KEY` needed)
 - Python 3.10+ (the bundled MCP server is written in Python)
 - A Unix-style shell (`bash` / `zsh`). The bootstrap skill uses heredocs, `mkdir -p`, `mktemp`, and subshell backgrounding — native Windows `cmd` / PowerShell isn't currently supported.
 - **macOS**: `brew install poppler` (plus `tesseract tesseract-lang` only if you plan to use the `tesseract` engine)
@@ -194,26 +193,26 @@ Supporting: `$paideia-hwmap` surfaces HW-density exam-probability, `$paideia-ini
 
 - `ollama` + the `qwen3-vl:8b` model (~6 GB). macOS: `brew install ollama`. Linux: see the [ollama install script](https://ollama.com/install.sh). Then `ollama pull qwen3-vl:8b`.
 
-If you don't install Ollama, Paideia's default engine (`codex-native`) reads page images through Codex CLI's built-in vision — the same vision your ChatGPT subscription already includes. No extra install, no second API key to manage.
+If you don't install Ollama, Paideia's default engine (`antigravity-native`) reads page images through Antigravity CLI's built-in vision — the same vision your ChatGPT subscription already includes. No extra install, no second API key to manage.
 
 ### Sandbox note
 
-If you run Paideia inside a sandboxed Codex session, local-engine and verification flows may trigger an approval prompt:
+If you run Paideia inside a sandboxed Antigravity session, local-engine and verification flows may trigger an approval prompt:
 
 - `qwen3-vl` talks to the local Ollama HTTP server at `http://localhost:11434`
-- live verification commands such as `codex exec --image ...` need to run outside the shell sandbox
+- live verification commands such as `antigravity exec --image ...` need to run outside the shell sandbox
 
-If Codex asks for approval in either case, click **Approve** so the plugin can reach the local model or run the verification command. Otherwise the OCR/test call can fail even when Ollama and Codex are installed correctly.
+If Antigravity asks for approval in either case, click **Approve** so the plugin can reach the local model or run the verification command. Otherwise the OCR/test call can fail even when Ollama and Antigravity are installed correctly.
 
-### Install via the Codex desktop app (recommended)
+### Install via the Antigravity app (recommended)
 
 The desktop app is the smoothest reading surface for Paideia — `summary.md`, `patterns.md`, `coverage.md`, and your `derivations/*.md` notes render inline as the agent emits them (see the screenshot grid above), so there's no separate reader to keep open.
 
-1. Download the **Codex desktop app** for your OS (macOS / Windows / Linux) and sign in with your ChatGPT Plus / Pro / Business / Edu / Enterprise account. See [developers.openai.com/codex](https://developers.openai.com/codex) for the current install link.
+1. Download the **Antigravity app** for your OS (macOS / Windows / Linux) and sign in with your ChatGPT Plus / Pro / Business / Edu / Enterprise account. See [developers.openai.com/antigravity](https://developers.openai.com/antigravity) for the current install link.
 2. Open any new conversation and run each line as its own command:
 
    ```
-   /plugins marketplace add https://github.com/OPTIMETA/PAIDEIA-codex.git
+   /plugins marketplace add https://github.com/OPTIMETA/PAIDEIA-agy.git
    ```
 
    ```
@@ -222,12 +221,12 @@ The desktop app is the smoothest reading surface for Paideia — `summary.md`, `
 
 3. The 16 `$paideia-` verbs are now available in every conversation, and the bundled `paideia-mcp` stdio server auto-launches when you enter a course folder. Continue to **Per-course bootstrap** below.
 
-### Install via the Codex CLI
+### Install via the Antigravity CLI
 
-If you prefer the terminal, install [Codex CLI](https://github.com/openai/codex) (`codex` on `PATH`) first, then run the same two commands inside `codex`, each as a separate line:
+If you prefer the terminal, install [Antigravity CLI](https://github.com/openai/antigravity) (`antigravity` on `PATH`) first, then run the same two commands inside `antigravity`, each as a separate line:
 
 ```
-/plugins marketplace add https://github.com/OPTIMETA/PAIDEIA-codex.git
+/plugins marketplace add https://github.com/OPTIMETA/PAIDEIA-agy.git
 ```
 
 ```
@@ -238,7 +237,7 @@ If you prefer the terminal, install [Codex CLI](https://github.com/openai/codex)
 
 ### Per-course bootstrap
 
-Open Codex CLI inside the folder you want to use for this course, then type:
+Open Antigravity CLI inside the folder you want to use for this course, then type:
 
 ```
 $paideia-init-course
@@ -247,12 +246,12 @@ $paideia-init-course
 This interactively:
 1. Checks Python / poppler / tesseract deps and offers to install missing ones (ollama is only probed when you pick the `qwen3-vl` engine in step 3).
 2. Asks for `COURSE_NAME`, `EXAM_DATE`, `EXAM_TYPE`, `WEAK_ZONES`.
-3. Asks which OCR engine you want as the default: `codex-native` (pages read via Codex CLI's bundled vision — no extra API key, no extra install), `qwen3-vl` (local Ollama, pulls the 6 GB model in the background), or `tesseract` (lightest, lowest fidelity).
+3. Asks which OCR engine you want as the default: `antigravity-native` (pages read via Antigravity CLI's bundled vision — no extra API key, no extra install), `qwen3-vl` (local Ollama, pulls the 6 GB model in the background), or `tesseract` (lightest, lowest fidelity).
 4. Creates the directory skeleton (`materials/`, `converted/`, `course-index/`, `quizzes/`, `mock/`, `twins/`, `chain/`, `derivations/`, `cheatsheet/`, `weakmap/`, `answers/converted/`, `errors/`).
 5. Writes `.course-meta` (carries `OCR_ENGINE`, read by `$paideia-grade`) and a project-level `AGENTS.md`.
 6. Runs `git init` if needed and merges the PAIDEIA-managed `.gitignore` rules so your prep is versioned from the first keystroke.
 
-You can always override the OCR engine for a single grade call: `$paideia-grade --ocr=codex-native path/to/answer.pdf`.
+You can always override the OCR engine for a single grade call: `$paideia-grade --ocr=antigravity-native path/to/answer.pdf`.
 
 ---
 
@@ -263,7 +262,7 @@ After `$paideia-init-course`, your course folder looks like this:
 ```
 my-course/
 ├── .course-meta                     # course name, exam date, OCR engine
-├── AGENTS.md                        # project rules Codex reads every turn
+├── AGENTS.md                        # project rules Antigravity reads every turn
 ├── .gitignore                       # hides raw answer PDFs, OCR scratch, optional PDF export
 │
 ├── materials/                       # YOU DROP RAW FILES HERE (PDF or MD)
@@ -309,7 +308,7 @@ Everything else is produced by skills and should be treated as regenerable. Dele
 
 ## A reading tip: use Obsidian
 
-If you run Paideia from the Codex CLI rather than the Codex desktop app, this is the recommended companion. Paideia writes everything as plain markdown with LaTeX math (`$...$`, `$$...$$`); you can read it in any editor, but **[Obsidian](https://obsidian.md)** is the natural choice:
+If you run Paideia from the Antigravity CLI rather than the Antigravity app, this is the recommended companion. Paideia writes everything as plain markdown with LaTeX math (`$...$`, `$$...$$`); you can read it in any editor, but **[Obsidian](https://obsidian.md)** is the natural choice:
 
 - Renders `$...$` and `$$...$$` math via MathJax with zero configuration
 - Backlinks let you click from `quizzes/q_<ts>.md` straight into the cited `converted/lectures/chN.md §K`
@@ -335,7 +334,7 @@ cp ~/hw/hw*.pdf             ~/courses/my-course/materials/homework/
 cp ~/hw/hw*_sol.pdf         ~/courses/my-course/materials/solutions/
 ```
 
-In Codex CLI:
+In Antigravity CLI:
 
 ```
 $paideia-ingest                     # every PDF → vision pipeline (paideia-mcp parallel fan-out, LaTeX-faithful)
@@ -348,7 +347,7 @@ $paideia-hwmap hot                  # surface 🔥🔥 exam-primary zones
 ```
 $paideia-quiz all 20                # broad diagnostic, 20 problems
 # solve on paper (40 min), scan to answers/diagnostic.pdf
-$paideia-grade                      # codex-native OCR (Codex reads the page images) + strategy grade
+$paideia-grade                      # antigravity-native OCR (Antigravity reads the page images) + strategy grade
 ```
 
 ### Phase 2 — targeted drilling (bulk of your prep time)
@@ -400,7 +399,7 @@ $paideia-weakmap                    # top 3 only. Do not learn new things.
 | `$paideia-twin <problem-id>` | Variant of a known problem — same pattern, new surface |
 | `$paideia-chain <N>` | Multi-pattern integration problem combining N patterns |
 | `$paideia-mock <minutes>` | Full mock exam, HW-density weighted |
-| `$paideia-grade [--ocr=<engine>] [path]` | OCR answer PDF via the engine set in `.course-meta` (Codex-native vision / Qwen3-VL / Tesseract), strategy-grade, append `errors/log.md` |
+| `$paideia-grade [--ocr=<engine>] [path]` | OCR answer PDF via the engine set in `.course-meta` (Antigravity-native vision / Qwen3-VL / Tesseract), strategy-grade, append `errors/log.md` |
 | `$paideia-weakmap [concept]` | Priority-ranked weakness report saved to `weakmap/weakmap_<ts>.md` |
 | `$paideia-cheatsheet [--pdf]` | Error-driven one-pager |
 | `$paideia-alt [paste]` | Import an OPTIMETA Exam Radar (Alt plugin) export → `course-index/radar.md` + a lecture-emphasis column on `coverage.md` + a gold-zone weakmap |
@@ -411,16 +410,16 @@ $paideia-weakmap                    # top 3 only. Do not learn new things.
 
 ### The MCP server: `paideia-mcp`
 
-The Claude edition drove parallel vision ingest by spawning one `general-purpose` subagent per PDF. Codex subagents exist but are heavier per-task, and Codex's `view_image` tool requires explicit user consent for each image — neither is a good fit for a 200-page textbook ingest. The Codex edition therefore moves the heavy work into a **bundled stdio MCP server**, `paideia-mcp`, that Codex spawns automatically the first time a skill calls into it. It exposes four tools:
+The Claude edition drove parallel vision ingest by spawning one `general-purpose` subagent per PDF. Antigravity subagents exist but are heavier per-task, and Antigravity's `view_image` tool requires explicit user consent for each image — neither is a good fit for a 200-page textbook ingest. The Antigravity edition therefore moves the heavy work into a **bundled stdio MCP server**, `paideia-mcp`, that Antigravity spawns automatically the first time a skill calls into it. It exposes four tools:
 
 | Tool | What it does |
 |------|--------------|
-| `ingest_pdfs` | Render every `materials/**/*.pdf` to PNGs, resize to ≤1800 px on the long edge, then either (a) hand the page paths back to the calling skill when `engine=codex-native` (Codex reads them with its bundled vision), or (b) OCR in-process and write LaTeX markdown to `converted/**` when `engine=qwen3-vl` / `tesseract`. Deterministic `ProcessPoolExecutor` fan-out, resumable per PDF. |
-| `grade_pdf` | Same dual behavior for a single hand-written answer PDF: `codex-native` rasterizes + returns page paths; `qwen3-vl` / `tesseract` run OCR in-process and write `answers/converted/<stem>.md` with a confidence tier. |
+| `ingest_pdfs` | Render every `materials/**/*.pdf` to PNGs, resize to ≤1800 px on the long edge, then either (a) hand the page paths back to the calling skill when `engine=antigravity-native` (Antigravity reads them with its bundled vision), or (b) OCR in-process and write LaTeX markdown to `converted/**` when `engine=qwen3-vl` / `tesseract`. Deterministic `ProcessPoolExecutor` fan-out, resumable per PDF. |
+| `grade_pdf` | Same dual behavior for a single hand-written answer PDF: `antigravity-native` rasterizes + returns page paths; `qwen3-vl` / `tesseract` run OCR in-process and write `answers/converted/<stem>.md` with a confidence tier. |
 | `build_course_index` | Read `converted/**`, write a machine-generated baseline `course-index/{summary,patterns,coverage}.md`, and return the inventory the analyze skill can refine. |
 | `course_phase` | Artifact-derived phase (setup → diag → drill → mock → cram → cool). Returns `{phase, days_until_exam, top_miss_pattern}`. Used by `$paideia-phase` and any skill that needs to know where the user is in the cycle. |
 
-Skills stay thin (~40–80 lines of orchestration): parse arguments, call the right MCP tool, summarize the result for the user. Raw page images never enter Codex's context.
+Skills stay thin (~40–80 lines of orchestration): parse arguments, call the right MCP tool, summarize the result for the user. Raw page images never enter Antigravity's context.
 
 ### Ingest pipeline: vision for every PDF
 
@@ -439,13 +438,13 @@ The user does not type math into chat. They solve on paper, scan to PDF, drop th
 
 | Engine | Default? | How it runs | When to pick it |
 |---|---|---|---|
-| `codex-native` | **Yes** | `paideia-mcp.grade_pdf` renders each page to PNG under `answers/.paideia-cache/<stem>/`, then hands the page paths back so Codex CLI can read them with its bundled vision — the same vision your ChatGPT Plus/Pro/Business subscription already includes. No `OPENAI_API_KEY` and no separate API billing. | The out-of-the-box path. Strong on Korean + LaTeX + hand-written math; no local model-load stall; no double-billing. |
+| `antigravity-native` | **Yes** | `paideia-mcp.grade_pdf` renders each page to PNG under `answers/.paideia-cache/<stem>/`, then hands the page paths back so Antigravity CLI can read them with its bundled vision — the same vision your ChatGPT Plus/Pro/Business subscription already includes. No `OPENAI_API_KEY` and no separate API billing. | The out-of-the-box path. Strong on Korean + LaTeX + hand-written math; no local model-load stall; no double-billing. |
 | `qwen3-vl` | opt-in | Local Qwen3-VL 8B via Ollama's HTTP API, with automatic tesseract fallback. | You want the page images to never leave the machine. Requires `ollama pull qwen3-vl:8b` once (~6 GB). |
 | `tesseract` | opt-in | `pytesseract` with whichever of `eng` / `kor` traineddata is installed (auto-detected; falls back to the single available language if the other is missing). | Fastest and lightest; acceptable for typed scans; poor on hand-writing. |
 
 Each engine writes `answers/converted/<stem>.md` with a `<!-- source: ... -->` / `<!-- tier: ... -->` header comment so `$paideia-grade` can caveat low-confidence OCR.
 
-Default choice (`codex-native`) is deliberately the path of least friction and least spend: if you're running Codex CLI you're already paying for the ChatGPT subscription that includes vision, so the default engine neither installs extra software nor charges you twice. The `qwen3-vl` engine exists for users who want a hard privacy boundary on the page images themselves, and `tesseract` exists as a reliable floor when nothing else is available.
+Default choice (`antigravity-native`) is deliberately the path of least friction and least spend: if you're running Antigravity CLI you're already paying for the ChatGPT subscription that includes vision, so the default engine neither installs extra software nor charges you twice. The `qwen3-vl` engine exists for users who want a hard privacy boundary on the page images themselves, and `tesseract` exists as a reliable floor when nothing else is available.
 
 ### Strategy-based grading, not line-by-line
 
@@ -471,7 +470,7 @@ After `$paideia-grade` succeeds, the original hand-written PDF is moved from `an
 
 ### Phase detection
 
-Codex doesn't expose a persistent statusline slot the way Claude Code does, so the neon one-liner that the Claude edition paints there is not ported. The underlying phase detection, however, is exposed as its own verb:
+Antigravity doesn't expose a persistent statusline slot the way Claude Code does, so the neon one-liner that the Claude edition paints there is not ported. The underlying phase detection, however, is exposed as its own verb:
 
 ```
 $paideia-phase
@@ -493,13 +492,13 @@ Why activity-based rather than file-existence-based: an artifact that was never 
 ## What ships
 
 ```
-PAIDEIA-codex/
-├── .agents/plugins/marketplace.json     # marketplace manifest (Codex)
+PAIDEIA-agy/
+├── .agents/plugins/marketplace.json     # marketplace manifest (Antigravity)
 ├── LICENSE                              # MIT
 ├── README.md                            # this file
 ├── README.ko.md                         # Korean mirror
 └── plugins/paideia/
-    ├── .codex-plugin/plugin.json        # plugin manifest (name, version, author)
+    ├── .antigravity-plugin/plugin.json        # plugin manifest (name, version, author)
     ├── .mcp.json                        # spawn config for paideia-mcp
     ├── README.md                        # quick-reference card
     ├── paideia-mcp/                     # bundled stdio MCP server
@@ -539,14 +538,14 @@ PAIDEIA-codex/
 
 ## Design convictions
 
-1. **The terminal is bad for math.** Codex produces markdown files; you read them (ideally in Obsidian).
-2. **Typing solutions is slow and error-prone.** You solve on paper, scan, and the plugin OCRs (locally, or via Codex CLI's bundled vision — no extra billing for ChatGPT subscribers).
+1. **The terminal is bad for math.** Antigravity produces markdown files; you read them (ideally in Obsidian).
+2. **Typing solutions is slow and error-prone.** You solve on paper, scan, and the plugin OCRs (locally, or via Antigravity CLI's bundled vision — no extra billing for ChatGPT subscribers).
 3. **OCR noise is inevitable.** So grading is strategy-based (pattern / variables / end-form), not line-by-line algebra. This is what the actual exam grader is evaluating anyway.
 4. **Patterns must be extracted from *your* course's solutions** — not from a generic list. Every discipline has its own idioms; only the course itself reveals them.
 5. **Your errors are the most valuable study signal** — more than the textbook, more than the lectures. The cheatsheet is generated from `errors/log.md`, not from the syllabus.
 6. **HW density tells you the exam.** Your time is finite; spend it where the points are.
 7. **Everything is yours to edit.** Patterns, weakmaps, cheatsheets, the error log — all plain markdown/YAML in your own git history. Disagree with `P3`? Rewrite it, and the next drill uses your edit. Fork a course folder from last semester into a new one and edit deltas. The plugin is a scaffold; the study graph is yours.
-8. **Heavy pipelines live in MCP, not in skill bodies.** The parallel vision ingest, multi-engine OCR dispatch, pattern extraction, and phase detection are all implemented in `paideia-mcp`. Skills just orchestrate. This keeps skill bodies short enough to audit by hand and keeps Codex's context free of raw page images.
+8. **Heavy pipelines live in MCP, not in skill bodies.** The parallel vision ingest, multi-engine OCR dispatch, pattern extraction, and phase detection are all implemented in `paideia-mcp`. Skills just orchestrate. This keeps skill bodies short enough to audit by hand and keeps Antigravity's context free of raw page images.
 
 ---
 
@@ -565,25 +564,25 @@ Per-course persistence. An LLM chat has no memory of the pattern you missed on H
 Yes. That's the whole point of keeping them as plain markdown. If `P3` feels wrong, open `course-index/patterns.md` and rewrite it — subsequent drills will use your edit. If the cheatsheet emphasizes the wrong thing, trim it. The plugin is a scaffold; the study graph is yours to shape.
 
 **Do I need Ollama / Qwen3-VL to use this?**
-No. The default engine is `codex-native`, which reads page images via Codex CLI's built-in vision — the same vision your ChatGPT Plus/Pro/Business/Edu/Enterprise subscription already includes. No separate API key, no additional install. Ollama + `qwen3-vl:8b` is an opt-in path for users who want the page images to stay on their machine entirely. `tesseract` is a third option for minimal-install setups or typed scans.
+No. The default engine is `antigravity-native`, which reads page images via Antigravity CLI's built-in vision — the same vision your ChatGPT Plus/Pro/Business/Edu/Enterprise subscription already includes. No separate API key, no additional install. Ollama + `qwen3-vl:8b` is an opt-in path for users who want the page images to stay on their machine entirely. `tesseract` is a third option for minimal-install setups or typed scans.
 
 **Do I need a separate `OPENAI_API_KEY`?**
-No. Codex CLI authenticates via "Sign in with ChatGPT" and bundles vision as part of the subscription. Paideia's default engine just hands page images to Codex — it never makes a separate paid API call on your behalf. (The old `openai-vision` engine, which did call the Responses API with a second key, has been removed to avoid double-billing Codex users.)
+No. Antigravity CLI authenticates via "Sign in with ChatGPT" and bundles vision as part of the subscription. Paideia's default engine just hands page images to Antigravity — it never makes a separate paid API call on your behalf. (The old `openai-vision` engine, which did call the Responses API with a second key, has been removed to avoid double-billing Antigravity users.)
 
 **What if my machine can't run `qwen3-vl:8b` even though I picked Qwen3-VL?**
-The MCP server's OCR dispatcher automatically falls back to tesseract on any Ollama failure. You can also just set `OCR_ENGINE: codex-native` in `.course-meta` (or pass `--ocr=codex-native`) and skip Ollama entirely.
+The MCP server's OCR dispatcher automatically falls back to tesseract on any Ollama failure. You can also just set `OCR_ENGINE: antigravity-native` in `.course-meta` (or pass `--ocr=antigravity-native`) and skip Ollama entirely.
 
 **Can I reuse the plugin across multiple courses?**
-Yes — each course lives in its own folder with its own `.course-meta`, `course-index/`, `errors/log.md`, and `weakmap/`. Nothing is shared or polluted across courses. Open Codex CLI inside whichever course folder you're working on.
+Yes — each course lives in its own folder with its own `.course-meta`, `course-index/`, `errors/log.md`, and `weakmap/`. Nothing is shared or polluted across courses. Open Antigravity CLI inside whichever course folder you're working on.
 
 **Can I trust an LLM to grade my work?**
 Grading is strategy-based (pattern match, not algebra), the grader cites the pattern from `course-index/patterns.md`, and every grade writes a YAML entry you can audit in `errors/log.md`. If a grade is wrong, fix the YAML entry — the next `$paideia-weakmap` reflects the correction.
 
 **Is my data private?**
-Your PDFs, markdown, errors, and weakmaps all live in your local course folder — nothing is uploaded to any third-party service by the plugin itself. The only network traffic depends on the OCR engine you pick: with `codex-native` (default), page images are read by Codex CLI's own vision (so they travel over the same secure channel Codex already uses for every other turn — nothing new); with `qwen3-vl`, nothing leaves the machine after the one-time model download; with `tesseract`, nothing leaves the machine ever.
+Your PDFs, markdown, errors, and weakmaps all live in your local course folder — nothing is uploaded to any third-party service by the plugin itself. The only network traffic depends on the OCR engine you pick: with `antigravity-native` (default), page images are read by Antigravity CLI's own vision (so they travel over the same secure channel Antigravity already uses for every other turn — nothing new); with `qwen3-vl`, nothing leaves the machine after the one-time model download; with `tesseract`, nothing leaves the machine ever.
 
 **Can I share artifacts with the Claude Code edition?**
-Yes. The on-disk layout is byte-compatible. A course folder initialized by the Claude edition opens cleanly in the Codex edition (you just need an `AGENTS.md` alongside the existing `CLAUDE.md`, which `$paideia-init-course` will offer to generate), and vice versa. Errors logged by one edition feed the weakmap of the other without conversion.
+Yes. The on-disk layout is byte-compatible. A course folder initialized by the Claude edition opens cleanly in the Antigravity edition (you just need an `AGENTS.md` alongside the existing `CLAUDE.md`, which `$paideia-init-course` will offer to generate), and vice versa. Errors logged by one edition feed the weakmap of the other without conversion.
 
 ---
 

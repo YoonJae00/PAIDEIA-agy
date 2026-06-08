@@ -13,3 +13,9 @@ venv/
 *.log
 .antigravitycli/
 .codex/
+
+# PAIDEIA cache and raw PDF assets
+.paideia-cache/
+answers/*.pdf
+answers/_archive/
+materials/**/*.pdf
