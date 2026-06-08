@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <sub><em>강의는 <a href="https://github.com/OPTIMETA/PAIDEIA-Alt"><strong>Exam Radar</strong></a>(OPTIMETA의 Alt 플러그인)로 잡고, 공부는 Paideia로 합니다. Alt에 설치해 둘을 같이 쓰면 강의실에 앉아 있는 순간부터 시험 공부까지가 하나의 워크플로우로 이어집니다. 로드맵은 <code>$paideia-alt</code>로 곧장 흘려보내세요.</em></sub>
+  <sub><em>강의는 <a href="https://github.com/OPTIMETA/PAIDEIA-Alt"><strong>Exam Radar</strong></a>(OPTIMETA의 Alt 플러그인)로 잡고, 공부는 Paideia로 합니다. Alt에 설치해 둘을 같이 쓰면 강의실에 앉아 있는 순간부터 시험 공부까지가 하나의 워크플로우로 이어집니다. 로드맵은 <code>/paideia-alt</code>로 곧장 흘려보내세요.</em></sub>
 </p>
 
 <p align="center">
@@ -54,14 +54,14 @@
 
 | 개념 | Claude Code 에디션 | Antigravity 에디션 |
 |---|---|---|
-| 명령 문법 | `/paideia:ingest` | `$paideia-ingest` |
+| 명령 문법 | `/paideia:ingest` | `/paideia-ingest` |
 | 프로젝트 컨텍스트 파일 | `CLAUDE.md` | `AGENTS.md` |
 | 플러그인 루트 변수 | `${CLAUDE_PLUGIN_ROOT}` | `${ANTIGRAVITY_PLUGIN_ROOT}` 또는 `${ANTIGRAVITY_PLUGIN_ROOT}` |
 | 무거운 파이프라인이 사는 곳 | PDF별 `general-purpose` 서브에이전트 | 번들 `paideia-mcp` stdio MCP 서버 |
 | 기본 OCR | Claude 네이티브 비전(추가 설치 없음) | CLI 내장 비전 (추가 설치 없음, 별도 API 키 불필요) |
 | 로컬 OCR | `ollama` + `qwen3-vl:8b` | 동일 (`qwen3-vl`) |
 | Tesseract 최후 보루 | 있음 | 있음 |
-| Statusline 위젯 | `paideia · COURSE · D-N · phase · P<k>` | *(미포팅 — CLI에 지속 statusline 슬롯이 없습니다. 단계는 `$paideia-phase`로 조회)* |있습니다 — 어느 agentic CLI를 이미 결제 중이든 PAIDEIA를 돌릴 수 있도록 해 주는 CLI-중립 대안으로 남기 때문입니다. 두 에디션 모두 함께 관리되니, 구독 환경에 맞는 쪽을 고르시면 됩니다.
+| Statusline 위젯 | `paideia · COURSE · D-N · phase · P<k>` | *(미포팅 — CLI에 지속 statusline 슬롯이 없습니다. 단계는 `/paideia-phase`로 조회)* |있습니다 — 어느 agentic CLI를 이미 결제 중이든 PAIDEIA를 돌릴 수 있도록 해 주는 CLI-중립 대안으로 남기 때문입니다. 두 에디션 모두 함께 관리되니, 구독 환경에 맞는 쪽을 고르시면 됩니다.
 
 PAIDEIA는 원래 Claude Code 플러그인으로 태어났습니다. 핵심 로직 — 병렬 비전 인제스트, 전략 기반 채점, *당신*의 풀이집에서 패턴을 추출하기 — 은 사실 Claude에 묶여 있던 적이 없었습니다. 대신 *어떤* agentic CLI든 "skills, subagents, plugins, 그리고 쓸만한 비전 경로"라는 네 가지 기반을 갖추기만 하면 얹을 수 있는 구조였습니다. Antigravity CLI는 2026년에 그 기반(skills, subagents, MCP, plugins, `AGENTS.md`)을 모두 갖추게 되었고, 덕분에 이식은 학습 그래프를 새로 설계하는 일이 아니라 **기존 로직을 Antigravity의 기본 요소 위에 다시 얹는 일**로 마무리되었습니다.
 
@@ -71,14 +71,14 @@ PAIDEIA는 원래 Claude Code 플러그인으로 태어났습니다. 핵심 로�
 
 | 개념 | Claude Code 에디션 | Antigravity 에디션 |
 |---|---|---|
-| 명령 문법 | `/paideia:ingest` | `$paideia-ingest` |
+| 명령 문법 | `/paideia:ingest` | `/paideia-ingest` |
 | 프로젝트 컨텍스트 파일 | `CLAUDE.md` | `AGENTS.md` |
 | 플러그인 루트 변수 | `${CLAUDE_PLUGIN_ROOT}` | `${ANTIGRAVITY_PLUGIN_ROOT}` |
 | 무거운 파이프라인이 사는 곳 | PDF별 `general-purpose` 서브에이전트 | 번들 `paideia-mcp` stdio MCP 서버 |
 | 기본 OCR | Claude 네이티브 비전(추가 설치 없음) | Antigravity CLI 내장 비전 (추가 설치 없음, 별도 API 키 불필요 — Antigravity CLI가 이미 요구하는 ChatGPT Plus/Pro/Business 구독에 포함) |
 | 로컬 OCR | `ollama` + `qwen3-vl:8b` | 동일 (`qwen3-vl`) |
 | Tesseract 최후 보루 | 있음 | 있음 |
-| Statusline 위젯 | `paideia · COURSE · D-N · phase · P<k>` | *(미포팅 — Antigravity에는 지속 statusline 슬롯이 없습니다. 단계는 `$paideia-phase`로 조회)* |
+| Statusline 위젯 | `paideia · COURSE · D-N · phase · P<k>` | *(미포팅 — Antigravity에는 지속 statusline 슬롯이 없습니다. 단계는 `/paideia-phase`로 조회)* |
 
 그 외의 것들 — 디렉토리 레이아웃, 패턴 추출 로직, 전략 채점, 숙제 밀도 기반 출제 티어링, `weakmap/`의 append-only 이력, 오답 기반 치트시트 — 은 모두 같습니다.
 
@@ -126,7 +126,7 @@ Paideia의 우선순위는 이 원리를 명시적으로 반영합니다. 모든
 | 🟡 Exam-possible | 1 | 가볍게 복습 | ≤5% |
 | ⚪ Low-risk | 0 | 참조·독서 용도만 | 0 |
 
-`$paideia-quiz all`, `$paideia-mock`, `$paideia-hwmap hot` 모두 이 가중치를 존중합니다. 만약 사용자가 ⚪ 절을 굳이 드릴하겠다고 요청하면, 플러그인은 한 번은 따라 주지만 출제 확률이 낮다는 경고를 덧붙입니다. 제한된 시간은 상상 속 함정보다 훨씬 가치 있기 때문입니다.
+`/paideia-quiz all`, `/paideia-mock`, `/paideia-hwmap hot` 모두 이 가중치를 존중합니다. 만약 사용자가 ⚪ 절을 굳이 드릴하겠다고 요청하면, 플러그인은 한 번은 따라 주지만 출제 확률이 낮다는 경고를 덧붙입니다. 제한된 시간은 상상 속 함정보다 훨씬 가치 있기 때문입니다.
 
 ---
 
@@ -134,14 +134,14 @@ Paideia의 우선순위는 이 원리를 명시적으로 반영합니다. 모든
 
 | 단계 | 하는 일 | 명령 | 산출물 |
 |------|---------------|------|--------|
-| **대면 (Encounter)** | 교수님이 보낸 신호를 읽습니다 | `$paideia-ingest` | `converted/**/*.md` — 모든 강의노트·교재 챕터·숙제·풀이를 깨끗한 마크다운으로 |
-| **구조화 (Structure)** | 과목 고유의 문법을 추출합니다 | `$paideia-analyze` | `course-index/{summary,patterns,coverage}.md` — 주제 트리, 반복되는 풀이 패턴 (P1..Pk), 숙제 밀도 기반 출제 티어 |
-| **연습 (Practice)** | 교수님이 실제로 시험하는 것에 가중치를 두어 능동 회상을 수행합니다 | `$paideia-quiz`, `$paideia-twin`, `$paideia-blind`, `$paideia-chain`, `$paideia-mock` | `quizzes/`, `twins/`, `chain/`, `mock/` — 종이에 풀 문제들 |
-| **성찰 (Reflection)** | 손으로 쓴 답안이 채점 결과로 바뀝니다 | `$paideia-grade` | `answers/converted/<name>.md` + `errors/log.md` — Antigravity 내장 비전(기본) / Qwen3-VL / Tesseract 중 선택한 엔진으로 OCR, 전략 기반 채점 |
-| **진단 (Diagnosis)** | 오류를 우선순위가 매겨진 약점 리포트로 압축합니다 | `$paideia-weakmap` | `weakmap/weakmap_<ts>.md` — append-only 이력 |
-| **증류 (Distillation)** | 오류에서 출발한 한 장짜리 인쇄물을 만듭니다 | `$paideia-cheatsheet`, `$paideia-derive`, `$paideia-pattern` | `cheatsheet/final.md`, `derivations/<slug>.md` — 실제로 필요한 것만 참조 |
+| **대면 (Encounter)** | 교수님이 보낸 신호를 읽습니다 | `/paideia-ingest` | `converted/**/*.md` — 모든 강의노트·교재 챕터·숙제·풀이를 깨끗한 마크다운으로 |
+| **구조화 (Structure)** | 과목 고유의 문법을 추출합니다 | `/paideia-analyze` | `course-index/{summary,patterns,coverage}.md` — 주제 트리, 반복되는 풀이 패턴 (P1..Pk), 숙제 밀도 기반 출제 티어 |
+| **연습 (Practice)** | 교수님이 실제로 시험하는 것에 가중치를 두어 능동 회상을 수행합니다 | `/paideia-quiz`, `/paideia-twin`, `/paideia-blind`, `/paideia-chain`, `/paideia-mock` | `quizzes/`, `twins/`, `chain/`, `mock/` — 종이에 풀 문제들 |
+| **성찰 (Reflection)** | 손으로 쓴 답안이 채점 결과로 바뀝니다 | `/paideia-grade` | `answers/converted/<name>.md` + `errors/log.md` — Antigravity 내장 비전(기본) / Qwen3-VL / Tesseract 중 선택한 엔진으로 OCR, 전략 기반 채점 |
+| **진단 (Diagnosis)** | 오류를 우선순위가 매겨진 약점 리포트로 압축합니다 | `/paideia-weakmap` | `weakmap/weakmap_<ts>.md` — append-only 이력 |
+| **증류 (Distillation)** | 오류에서 출발한 한 장짜리 인쇄물을 만듭니다 | `/paideia-cheatsheet`, `/paideia-derive`, `/paideia-pattern` | `cheatsheet/final.md`, `derivations/<slug>.md` — 실제로 필요한 것만 참조 |
 
-보조 명령: `$paideia-hwmap`은 숙제 밀도 기반 출제 확률을 띄워 줍니다. `$paideia-init-course`는 새 코스 폴더를 부트스트랩합니다. `$paideia-phase`는 폴더가 현재 사이클의 어느 단계에 있는지를 알려 줍니다.
+보조 명령: `/paideia-hwmap`은 숙제 밀도 기반 출제 확률을 띄워 줍니다. `/paideia-init-course`는 새 코스 폴더를 부트스트랩합니다. `/paideia-phase`는 폴더가 현재 사이클의 어느 단계에 있는지를 알려 줍니다.
 
 ---
 
@@ -182,14 +182,14 @@ agy plugin install ./plugins/paideia
 ```
 
 
-설치가 끝나면 15개의 동사가 `$paideia-` 접두어로 제공되고, 코스 폴더에 들어가시는 순간 `paideia-mcp` stdio 서버가 자동으로 스폰됩니다.
+설치가 끝나면 15개의 동사가 `/paideia-` 접두어로 제공되고, 코스 폴더에 들어가시는 순간 `paideia-mcp` stdio 서버가 자동으로 스폰됩니다.
 
 ### 코스별 부트스트랩
 
 해당 코스용으로 쓰실 폴더 안에서 Antigravity CLI를 여신 뒤 다음을 실행해 주세요.
 
 ```
-$paideia-init-course
+/paideia-init-course
 ```
 
 이 스킬은 대화식으로 다음을 수행합니다.
@@ -197,16 +197,16 @@ $paideia-init-course
 2. `COURSE_NAME`, `EXAM_DATE`, `EXAM_TYPE`, `WEAK_ZONES` 값을 입력받습니다
 3. 기본 OCR 엔진을 고릅니다 — `antigravity-native` (Antigravity CLI 내장 비전으로 페이지 이미지를 직접 읽음 — 별도 API 키 불필요, 추가 과금 없음) / `qwen3-vl` (로컬 Ollama, 약 6 GB 모델을 백그라운드에서 받음) / `tesseract` (가장 가볍고 빠름, 필기 정확도는 낮음)
 4. 디렉토리 골격을 생성합니다 (`materials/`, `converted/`, `course-index/`, `quizzes/`, `mock/`, `twins/`, `chain/`, `derivations/`, `cheatsheet/`, `weakmap/`, `answers/converted/`, `errors/`)
-5. `.course-meta`(`OCR_ENGINE`을 담고 있으며 `$paideia-grade`가 이 값을 읽습니다)와 프로젝트 수준 `AGENTS.md`를 작성합니다
+5. `.course-meta`(`OCR_ENGINE`을 담고 있으며 `/paideia-grade`가 이 값을 읽습니다)와 프로젝트 수준 `AGENTS.md`를 작성합니다
 6. 필요하면 `git init`을 수행하고, PAIDEIA 관리용 `.gitignore` 규칙을 병합해 첫 키 입력부터 준비 과정이 버전 관리되도록 합니다
 
-개별 채점 호출에서는 엔진을 그때그때 덮어쓰실 수 있습니다. 예: `$paideia-grade --ocr=antigravity-native path/to/answer.pdf`.
+개별 채점 호출에서는 엔진을 그때그때 덮어쓰실 수 있습니다. 예: `/paideia-grade --ocr=antigravity-native path/to/answer.pdf`.
 
 ---
 
 ## 코스 폴더 구조
 
-`$paideia-init-course`를 실행하고 나면 코스 폴더가 다음과 같이 구성됩니다.
+`/paideia-init-course`를 실행하고 나면 코스 폴더가 다음과 같이 구성됩니다.
 
 ```
 my-course/
@@ -221,30 +221,30 @@ my-course/
 │   └── solutions/                   # 과제 풀이 / 예제 풀이
 │
 ├── converted/                       # 자동 생성된 마크다운 — 직접 수정하지 마세요
-│   ├── lectures/                    # $paideia-ingest의 산출물 (비전으로 전사한 LaTeX)
+│   ├── lectures/                    # /paideia-ingest의 산출물 (비전으로 전사한 LaTeX)
 │   ├── textbook/
 │   ├── homework/
 │   └── solutions/
 │
-├── course-index/                    # 지식 베이스 — $paideia-analyze가 생성
+├── course-index/                    # 지식 베이스 — /paideia-analyze가 생성
 │   ├── summary.md                   # 주제 트리 (§1, §1.1, §2, …)
 │   ├── patterns.md                  # 반복되는 풀이 패턴, P1, P2, … 라벨
 │   ├── coverage.md                  # HW ↔ § 매핑 + 🔥🔥 / 🔥 / 🟡 / ⚪ 시험 티어
-│   └── radar.md                     # 강의 강조 신호 — $paideia-alt가 임포트
+│   └── radar.md                     # 강의 강조 신호 — /paideia-alt가 임포트
 │
 ├── answers/                         # 직접 필기 스캔 PDF를 넣는 곳
-│   └── converted/                   # $paideia-grade가 OCR한 마크다운을 여기에 씁니다
+│   └── converted/                   # /paideia-grade가 OCR한 마크다운을 여기에 씁니다
 │
 ├── errors/
-│   └── log.md                       # append-only YAML 오답 로그 ($paideia-weakmap / $paideia-cheatsheet의 원천)
+│   └── log.md                       # append-only YAML 오답 로그 (/paideia-weakmap / /paideia-cheatsheet의 원천)
 │
-├── quizzes/                         # $paideia-quiz — 문제마다 숨겨진 _answers.md 형제
-├── mock/                            # $paideia-mock — 모의고사 (숨겨진 _sol.md 형제)
-├── twins/                           # $paideia-twin — 같은 패턴, 다른 표면
-├── chain/                           # $paideia-chain — 다중 패턴 통합 문제
-├── derivations/                     # $paideia-derive — 참조용 유도 모음
-├── cheatsheet/                      # $paideia-cheatsheet — 오답 기반 한 장 요약 (+ 선택적 PDF)
-└── weakmap/                         # $paideia-weakmap — 시간순, append-only 이력
+├── quizzes/                         # /paideia-quiz — 문제마다 숨겨진 _answers.md 형제
+├── mock/                            # /paideia-mock — 모의고사 (숨겨진 _sol.md 형제)
+├── twins/                           # /paideia-twin — 같은 패턴, 다른 표면
+├── chain/                           # /paideia-chain — 다중 패턴 통합 문제
+├── derivations/                     # /paideia-derive — 참조용 유도 모음
+├── cheatsheet/                      # /paideia-cheatsheet — 오답 기반 한 장 요약 (+ 선택적 PDF)
+└── weakmap/                         # /paideia-weakmap — 시간순, append-only 이력
 ```
 
 **직접 손으로 관리하시는 디렉토리는 두 개뿐입니다.**
@@ -268,7 +268,7 @@ Paideia는 모든 것을 LaTeX 수식(`$...$`, `$$...$$`)이 포함된 평범한
 
 ## 강의를 담는 쪽: Alt
 
-Obsidian이 '읽는 쪽' 동반자라면, **[Alt](https://www.altalt.io/ko/)**는 강의가 들어오는 '담는 쪽' 동반자입니다. Alt는 강의를 녹음·전사하고, 그 안에서 OPTIMETA의 **Exam Radar** 플러그인이 교수가 입으로 강조한 정도로 토픽을 추려 줍니다. 그 결과를 `$paideia-alt`로 Paideia에 흘려보내면 비로소 고리가 닫힙니다 — **강의를 듣고 → 담고 → 시험 신호를 뽑고 → 중요한 것만 공부**하는 전 과정이 흩어진 도구가 아니라 하나의 워크플로우가 됩니다. 강의 쪽은 Alt가, 깊은 개인 학습은 Paideia가, 그 사이의 다리는 Exam Radar가 맡습니다.
+Obsidian이 '읽는 쪽' 동반자라면, **[Alt](https://www.altalt.io/ko/)**는 강의가 들어오는 '담는 쪽' 동반자입니다. Alt는 강의를 녹음·전사하고, 그 안에서 OPTIMETA의 **Exam Radar** 플러그인이 교수가 입으로 강조한 정도로 토픽을 추려 줍니다. 그 결과를 `/paideia-alt`로 Paideia에 흘려보내면 비로소 고리가 닫힙니다 — **강의를 듣고 → 담고 → 시험 신호를 뽑고 → 중요한 것만 공부**하는 전 과정이 흩어진 도구가 아니라 하나의 워크플로우가 됩니다. 강의 쪽은 Alt가, 깊은 개인 학습은 Paideia가, 그 사이의 다리는 Exam Radar가 맡습니다.
 
 ---
 
@@ -286,48 +286,48 @@ cp ~/hw/hw*_sol.pdf         ~/courses/my-course/materials/solutions/
 Antigravity CLI에서:
 
 ```
-$paideia-ingest                     # 모든 PDF → paideia-mcp 병렬 비전 파이프라인, LaTeX 충실
-$paideia-analyze <약점 힌트>        # 패턴 + 커버리지 + 요약 생성
-$paideia-hwmap hot                  # 🔥🔥 exam-primary 영역 띄우기
+/paideia-ingest                     # 모든 PDF → paideia-mcp 병렬 비전 파이프라인, LaTeX 충실
+/paideia-analyze <약점 힌트>        # 패턴 + 커버리지 + 요약 생성
+/paideia-hwmap hot                  # 🔥🔥 exam-primary 영역 띄우기
 ```
 
 ### Phase 1 — 진단 (40분)
 
 ```
-$paideia-quiz all 20                # 광범위 진단, 20문항
+/paideia-quiz all 20                # 광범위 진단, 20문항
 # 종이에 풀고 (40분), answers/diagnostic.pdf로 스캔
-$paideia-grade                      # antigravity-native OCR (Antigravity가 페이지 이미지를 직접 읽음) + 전략 채점
+/paideia-grade                      # antigravity-native OCR (Antigravity가 페이지 이미지를 직접 읽음) + 전략 채점
 ```
 
 ### Phase 2 — 타겟 드릴링 (준비 시간의 대부분)
 
 ```
-$paideia-weakmap                    # 우선순위 약점 리포트
-$paideia-blind hw3-p2               # 이미 풀어 본 문제의 전략만 점검
-$paideia-twin hw3-p2                # 같은 패턴, 새로운 표면의 변형 문제
-$paideia-chain 3                    # 3개 패턴이 결합된 통합 문제
-$paideia-quiz weakmap 5             # 최신 weakmap을 겨냥한 5문항
+/paideia-weakmap                    # 우선순위 약점 리포트
+/paideia-blind hw3-p2               # 이미 풀어 본 문제의 전략만 점검
+/paideia-twin hw3-p2                # 같은 패턴, 새로운 표면의 변형 문제
+/paideia-chain 3                    # 3개 패턴이 결합된 통합 문제
+/paideia-quiz weakmap 5             # 최신 weakmap을 겨냥한 5문항
 ```
 
 ### Phase 3 — 통합 (약 90분)
 
 ```
-$paideia-mock 90                    # 숙제 밀도로 가중된 90분 모의고사
+/paideia-mock 90                    # 숙제 밀도로 가중된 90분 모의고사
 # 종이에 풀고 answers/mock_<ts>.pdf로 스캔
-$paideia-grade                      # 모의고사 채점
+/paideia-grade                      # 모의고사 채점
 ```
 
 ### Phase 4 — 압축 (60분, 시험 전날 밤)
 
 ```
-$paideia-cheatsheet --pdf           # 오류에서 출발한 한 장짜리 치트시트
-$paideia-weakmap                    # 약점 구역을 한 번 더 훑기
+/paideia-cheatsheet --pdf           # 오류에서 출발한 한 장짜리 치트시트
+/paideia-weakmap                    # 약점 구역을 한 번 더 훑기
 ```
 
 ### Phase 5 — 쿨다운 (시험 10분 전)
 
 ```
-$paideia-weakmap                    # 상위 3개만. 새로운 것을 배우지는 마세요.
+/paideia-weakmap                    # 상위 3개만. 새로운 것을 배우지는 마세요.
 ```
 
 ---
@@ -336,22 +336,22 @@ $paideia-weakmap                    # 상위 3개만. 새로운 것을 배우지
 
 | 명령 | 용도 |
 |------|------|
-| `$paideia-init-course` | 새 코스 폴더 부트스트랩 (의존성 확인, 골격, 메타데이터 입력, 백그라운드 `ollama pull`) |
-| `$paideia-ingest [--force]` | `materials/**`의 모든 PDF를 `converted/**`의 마크다운으로 변환. `paideia-mcp` 병렬 비전 파이프라인으로 일괄 처리합니다. |
-| `$paideia-analyze [힌트]` | `course-index/{summary,patterns,coverage}.md` 구축 |
-| `$paideia-phase` | 현재 아티팩트 기준 phase 스냅샷 (`setup` → `cool`) 표시 |
-| `$paideia-hwmap hot\|<§>` | 숙제 밀도 순으로 🔥🔥 Exam-primary 절 띄우기 |
-| `$paideia-pattern <§\|Pk\|키워드>` | course-index에 있는 패턴 카드 표시 |
-| `$paideia-derive <타겟>` | `derivations/<slug>.md`에 정돈된 참조 유도 저장 |
-| `$paideia-quiz <주제\|§\|weakmap> [N]` | N개 연습 문항 생성, 답은 형제 `_answers.md`에 숨김 |
-| `$paideia-blind <problem-id>` | 이미 본 문제의 전략만 확인하는 드릴 (재풀이 아님, 접근 기술) |
-| `$paideia-twin <problem-id>` | 같은 패턴, 새 표면의 변형 문제 |
-| `$paideia-chain <N>` | N개 패턴을 묶은 통합 문제 |
-| `$paideia-mock <분>` | 숙제 밀도 가중 모의고사 전체 |
-| `$paideia-grade [--ocr=<engine>] [경로]` | `.course-meta`의 엔진 선택(Antigravity 내장 비전 / Qwen3-VL / Tesseract)으로 OCR 후 전략 채점, `errors/log.md`에 누적 기록 |
-| `$paideia-weakmap [개념]` | `weakmap/weakmap_<ts>.md`에 저장되는 우선순위 약점 리포트 |
-| `$paideia-cheatsheet [--pdf]` | 오류 주도 한 장짜리 치트시트 |
-| `$paideia-alt [붙여넣기]` | OPTIMETA Exam Radar(Alt 플러그인) 내보내기를 임포트 → `course-index/radar.md` + `coverage.md`의 강의 강조 열 + 골드존 weakmap |
+| `/paideia-init-course` | 새 코스 폴더 부트스트랩 (의존성 확인, 골격, 메타데이터 입력, 백그라운드 `ollama pull`) |
+| `/paideia-ingest [--force]` | `materials/**`의 모든 PDF를 `converted/**`의 마크다운으로 변환. `paideia-mcp` 병렬 비전 파이프라인으로 일괄 처리합니다. |
+| `/paideia-analyze [힌트]` | `course-index/{summary,patterns,coverage}.md` 구축 |
+| `/paideia-phase` | 현재 아티팩트 기준 phase 스냅샷 (`setup` → `cool`) 표시 |
+| `/paideia-hwmap hot\|<§>` | 숙제 밀도 순으로 🔥🔥 Exam-primary 절 띄우기 |
+| `/paideia-pattern <§\|Pk\|키워드>` | course-index에 있는 패턴 카드 표시 |
+| `/paideia-derive <타겟>` | `derivations/<slug>.md`에 정돈된 참조 유도 저장 |
+| `/paideia-quiz <주제\|§\|weakmap> [N]` | N개 연습 문항 생성, 답은 형제 `_answers.md`에 숨김 |
+| `/paideia-blind <problem-id>` | 이미 본 문제의 전략만 확인하는 드릴 (재풀이 아님, 접근 기술) |
+| `/paideia-twin <problem-id>` | 같은 패턴, 새 표면의 변형 문제 |
+| `/paideia-chain <N>` | N개 패턴을 묶은 통합 문제 |
+| `/paideia-mock <분>` | 숙제 밀도 가중 모의고사 전체 |
+| `/paideia-grade [--ocr=<engine>] [경로]` | `.course-meta`의 엔진 선택(Antigravity 내장 비전 / Qwen3-VL / Tesseract)으로 OCR 후 전략 채점, `errors/log.md`에 누적 기록 |
+| `/paideia-weakmap [개념]` | `weakmap/weakmap_<ts>.md`에 저장되는 우선순위 약점 리포트 |
+| `/paideia-cheatsheet [--pdf]` | 오류 주도 한 장짜리 치트시트 |
+| `/paideia-alt [붙여넣기]` | OPTIMETA Exam Radar(Alt 플러그인) 내보내기를 임포트 → `course-index/radar.md` + `coverage.md`의 강의 강조 열 + 골드존 weakmap |
 
 ---
 
@@ -366,13 +366,13 @@ Claude 에디션은 병렬 비전 인제스트를 PDF당 `general-purpose` 서�
 | `ingest_pdfs` | `materials/**/*.pdf`를 전부 PNG로 렌더링하고, 긴 변을 ≤1800 px로 축소한 뒤, (a) `engine=antigravity-native`일 때는 호출한 스킬에게 페이지 경로를 되돌려 주고 (스킬이 Antigravity CLI 내장 비전으로 직접 페이지를 읽습니다), (b) `engine=qwen3-vl` / `tesseract`일 때는 MCP 안에서 OCR을 돌려 LaTeX 마크다운을 `converted/**`에 기록합니다. `ProcessPoolExecutor`로 결정적 fan-out을 수행하며, PDF 단위로 재개(resume) 가능합니다. |
 | `grade_pdf` | 필기 답안 PDF 한 건에 대해서도 같은 이중 모드: `antigravity-native`는 페이지를 PNG로 렌더링하고 경로를 돌려 줍니다. `qwen3-vl` / `tesseract`는 MCP 내부에서 OCR을 돌려 `answers/converted/<stem>.md`를 만들고 신뢰도 티어와 함께 반환합니다. |
 | `build_course_index` | `converted/**`를 읽어 기계 생성 초안 `course-index/{summary,patterns,coverage}.md`를 쓰고, 그 초안을 상위 analyze 스킬이 다듬을 수 있도록 인벤토리도 함께 반환합니다. |
-| `course_phase` | 디스크 위 산출물에서 현재 단계(setup → diag → drill → mock → cram → cool)를 도출해 `{phase, days_until_exam, top_miss_pattern}`을 반환합니다. `$paideia-phase`가 이 도구를 호출하며, 사이클 위치를 알아야 하는 다른 스킬들도 함께 씁니다. |
+| `course_phase` | 디스크 위 산출물에서 현재 단계(setup → diag → drill → mock → cram → cool)를 도출해 `{phase, days_until_exam, top_miss_pattern}`을 반환합니다. `/paideia-phase`가 이 도구를 호출하며, 사이클 위치를 알아야 하는 다른 스킬들도 함께 씁니다. |
 
 스킬 본체는 얇게(오케스트레이션 ~40–80 줄) 유지됩니다 — 인수 파싱, 올바른 MCP 도구 호출, 결과 요약. 원시 페이지 이미지는 절대 Antigravity의 컨텍스트로 들어오지 않습니다.
 
 ### 인제스트 파이프라인: 모든 PDF를 비전으로
 
-`$paideia-ingest`는 `materials/**`의 모든 PDF를 동일한 비전 파이프라인으로 처리합니다. `pdfplumber`를 본문 위주 자료(교재, 과제)의 빠른 경로로 먼저 시도해 봤지만, 실제로는 신뢰할 수 없었습니다 — 얼핏 본문처럼 보이는 페이지도 수식·도표·다단 레이아웃·여백 주석이 섞이는 순간 조용히 단어 샐러드로 망가졌습니다. 코스마다 재조정이 필요한 카테고리별 휴리스틱과 폴백을 유지하느니, 모든 파일을 한 경로로 통일하는 편이 더 단순하고 안정적입니다.
+`/paideia-ingest`는 `materials/**`의 모든 PDF를 동일한 비전 파이프라인으로 처리합니다. `pdfplumber`를 본문 위주 자료(교재, 과제)의 빠른 경로로 먼저 시도해 봤지만, 실제로는 신뢰할 수 없었습니다 — 얼핏 본문처럼 보이는 페이지도 수식·도표·다단 레이아웃·여백 주석이 섞이는 순간 조용히 단어 샐러드로 망가졌습니다. 코스마다 재조정이 필요한 카테고리별 휴리스틱과 폴백을 유지하느니, 모든 파일을 한 경로로 통일하는 편이 더 단순하고 안정적입니다.
 
 | 원본 | 방법 |
 |---|---|
@@ -383,7 +383,7 @@ Claude 에디션은 병렬 비전 인제스트를 PDF당 `general-purpose` 서�
 
 ### 필기 OCR: 세 가지 엔진 중에서 직접 고르실 수 있습니다
 
-사용자는 채팅에 수식을 타이핑하지 않습니다. 종이에 풀고, PDF로 스캔하고, 그 PDF를 `answers/`에 떨어뜨리신 뒤 `$paideia-grade`를 실행하시면 됩니다. 플러그인은 세 엔진 중 선택하신 엔진으로 스캔본을 마크다운으로 바꿉니다. 기본 엔진은 코스별 `.course-meta`의 `OCR_ENGINE`으로 지정하며, 개별 호출에서는 `$paideia-grade --ocr=<engine>`로 덮어쓰실 수 있습니다.
+사용자는 채팅에 수식을 타이핑하지 않습니다. 종이에 풀고, PDF로 스캔하고, 그 PDF를 `answers/`에 떨어뜨리신 뒤 `/paideia-grade`를 실행하시면 됩니다. 플러그인은 세 엔진 중 선택하신 엔진으로 스캔본을 마크다운으로 바꿉니다. 기본 엔진은 코스별 `.course-meta`의 `OCR_ENGINE`으로 지정하며, 개별 호출에서는 `/paideia-grade --ocr=<engine>`로 덮어쓰실 수 있습니다.
 
 | 엔진 | 기본값? | 동작 방식 | 이럴 때 고르세요 |
 |---|---|---|---|
@@ -391,7 +391,7 @@ Claude 에디션은 병렬 비전 인제스트를 PDF당 `general-purpose` 서�
 | `qwen3-vl` | 선택 | Ollama HTTP API로 로컬 Qwen3-VL 8B를 호출하며, 실패 시 자동으로 tesseract로 폴백합니다. | 페이지 이미지조차 기기 밖으로 내보내고 싶지 않으실 때. 최초 `ollama pull qwen3-vl:8b` (~6 GB)가 필요합니다. |
 | `tesseract` | 선택 | 설치된 `pytesseract` 언어팩 중 `eng` / `kor`를 자동 감지해서 사용합니다 (하나만 설치돼 있으면 그 언어로 폴백). | 가장 빠르고 가볍습니다. 타이핑된 스캔엔 괜찮고, 필기엔 정확도가 낮습니다. |
 
-세 엔진 모두 `answers/converted/<stem>.md`에 `<!-- source: ... -->` / `<!-- tier: ... -->` 헤더 코멘트를 남기므로, `$paideia-grade`가 OCR 신뢰도가 낮을 때 그에 맞게 태도를 바꿀 수 있습니다.
+세 엔진 모두 `answers/converted/<stem>.md`에 `<!-- source: ... -->` / `<!-- tier: ... -->` 헤더 코멘트를 남기므로, `/paideia-grade`가 OCR 신뢰도가 낮을 때 그에 맞게 태도를 바꿀 수 있습니다.
 
 기본 엔진(`antigravity-native`)은 의도적으로 가장 마찰이 적고 가장 비용이 적은 선택으로 잡았습니다 — 이미 Antigravity CLI를 쓰신다는 건 ChatGPT 구독 비용을 내고 계시다는 뜻이고, 그 구독에 비전이 포함되어 있기 때문에 기본 엔진은 추가 설치도 이중 과금도 요구하지 않습니다. `qwen3-vl` 엔진은 페이지 이미지 자체에 대해 단단한 프라이버시 경계를 원하실 때를 위해, `tesseract` 엔진은 다른 엔진을 쓸 수 없을 때의 안정적인 하한선으로 남겨져 있습니다.
 
@@ -403,34 +403,34 @@ Claude 에디션은 병렬 비전 인제스트를 PDF당 `general-purpose` 서�
 2. **변수 (Variables)** — 올바른 치환 / 기저 / 인덱스 / 경로를 식별했는지
 3. **최종 형태 (End-form)** — 최종 표현의 모양(차원, 점근, 구조)이 맞는지
 
-오류는 타입이 지정된 분류(`pattern-missed | wrong-variable | wrong-end-form | algebraic | sign | definition`)와 함께 YAML 형태로 `errors/log.md`에 기록됩니다. 이 로그가 `$paideia-weakmap`의 씨앗이자, `$paideia-cheatsheet --pdf`의 *유일한* 입력이 됩니다.
+오류는 타입이 지정된 분류(`pattern-missed | wrong-variable | wrong-end-form | algebraic | sign | definition`)와 함께 YAML 형태로 `errors/log.md`에 기록됩니다. 이 로그가 `/paideia-weakmap`의 씨앗이자, `/paideia-cheatsheet --pdf`의 *유일한* 입력이 됩니다.
 
-스키마는 `errors/log.md`에 append하는 모든 스킬(`$paideia-grade`, `$paideia-blind`, 그리고 앞으로 추가될 모든 드릴)에 걸쳐 canonical — 키는 정확히 `problem_id · pattern · error_type · summary · source · date` 여섯 개입니다. 단일 진실 원천은 `plugins/paideia/skills/paideia-grade/SKILL.md` §6에 있으며, 하위 소비자(`paideia-mcp.course_phase`, `$paideia-phase`, `$paideia-weakmap`)는 `pattern:`과 `source:`를 기준으로 매칭합니다. `source:` 필드는 phase 감지가 모의고사 채점 엔트리와 일반 과제 채점 엔트리를 구분할 수 있게 해 주는 핵심입니다. 스키마가 어긋나면 해당 엔트리는 weakmap에서 조용히 사라지니, 새 드릴을 추가하실 때는 반드시 canonical 키를 그대로 쓰셔야 합니다.
+스키마는 `errors/log.md`에 append하는 모든 스킬(`/paideia-grade`, `/paideia-blind`, 그리고 앞으로 추가될 모든 드릴)에 걸쳐 canonical — 키는 정확히 `problem_id · pattern · error_type · summary · source · date` 여섯 개입니다. 단일 진실 원천은 `plugins/paideia/skills/paideia-grade/SKILL.md` §6에 있으며, 하위 소비자(`paideia-mcp.course_phase`, `/paideia-phase`, `/paideia-weakmap`)는 `pattern:`과 `source:`를 기준으로 매칭합니다. `source:` 필드는 phase 감지가 모의고사 채점 엔트리와 일반 과제 채점 엔트리를 구분할 수 있게 해 주는 핵심입니다. 스키마가 어긋나면 해당 엔트리는 weakmap에서 조용히 사라지니, 새 드릴을 추가하실 때는 반드시 canonical 키를 그대로 쓰셔야 합니다.
 
-`$paideia-grade`가 성공하면 원본 손글씨 PDF는 `answers/<stem>.pdf`에서 `answers/_archive/<stem>_<ts>.pdf`로 이동됩니다. 다음 호출에서 "`answers/`에서 가장 최근 수정된 파일" 로직이 매번 같은 파일을 다시 집어 올리지 않도록 막는 장치입니다. 변환된 마크다운은 `answers/converted/` 아래에 그대로 남아 버전 관리되며, 부피가 큰 스캔 원본만 아카이브(그리고 `answers/**/*.pdf` 규칙으로 자동 gitignore)됩니다.
+`/paideia-grade`가 성공하면 원본 손글씨 PDF는 `answers/<stem>.pdf`에서 `answers/_archive/<stem>_<ts>.pdf`로 이동됩니다. 다음 호출에서 "`answers/`에서 가장 최근 수정된 파일" 로직이 매번 같은 파일을 다시 집어 올리지 않도록 막는 장치입니다. 변환된 마크다운은 `answers/converted/` 아래에 그대로 남아 버전 관리되며, 부피가 큰 스캔 원본만 아카이브(그리고 `answers/**/*.pdf` 규칙으로 자동 gitignore)됩니다.
 
 ### *당신의* 풀이에서 추출된 패턴
 
-`$paideia-analyze`는 일반적인 "미적분 기법" 목록을 배포하는 도구가 아닙니다. 당신 과목의 실제 해답지를 읽어 반복되는 풀이 패턴을 추출하고, P1, P2, … 로 라벨을 붙인 뒤, 당신 자신의 `converted/solutions/` 파일을 인용하는 worked instance를 함께 제공합니다. 패턴은 *당신 과목 고유의 관용구*이지 어떤 교과서의 것도 아닙니다. 복소해석 수업에서 P3는 "닫힌 경로 + Jordan's lemma + 본질 특이점에서의 residue"일 수 있고, 선형 시스템 수업에서 P3는 "부분분수 + 복소극점을 갖는 역Laplace"일 수 있습니다. 각 분야는 자신만의 손놀림을 가지고 있고, 그것은 과목 자신을 통해서만 드러납니다.
+`/paideia-analyze`는 일반적인 "미적분 기법" 목록을 배포하는 도구가 아닙니다. 당신 과목의 실제 해답지를 읽어 반복되는 풀이 패턴을 추출하고, P1, P2, … 로 라벨을 붙인 뒤, 당신 자신의 `converted/solutions/` 파일을 인용하는 worked instance를 함께 제공합니다. 패턴은 *당신 과목 고유의 관용구*이지 어떤 교과서의 것도 아닙니다. 복소해석 수업에서 P3는 "닫힌 경로 + Jordan's lemma + 본질 특이점에서의 residue"일 수 있고, 선형 시스템 수업에서 P3는 "부분분수 + 복소극점을 갖는 역Laplace"일 수 있습니다. 각 분야는 자신만의 손놀림을 가지고 있고, 그것은 과목 자신을 통해서만 드러납니다.
 
 ### Append-only 이력
 
-`weakmap/` 디렉토리는 절대 덮어쓰지 않습니다. `$paideia-weakmap`을 호출할 때마다 `weakmap/weakmap_<ISO-timestamp>.md`가 새로 생성됩니다. `git log weakmap/`를 통해 어떤 약점이 가장 먼저 무너졌는지, 어떤 약점이 끈질기게 남아 있었는지, 진단 모의고사 이후 어떤 새로운 약점이 등장했는지 정확히 확인할 수 있습니다. "자신의 이해를 시간 축 위에서 `git diff`한다"는 발상이 실제로 구현된 지점이 이곳입니다.
+`weakmap/` 디렉토리는 절대 덮어쓰지 않습니다. `/paideia-weakmap`을 호출할 때마다 `weakmap/weakmap_<ISO-timestamp>.md`가 새로 생성됩니다. `git log weakmap/`를 통해 어떤 약점이 가장 먼저 무너졌는지, 어떤 약점이 끈질기게 남아 있었는지, 진단 모의고사 이후 어떤 새로운 약점이 등장했는지 정확히 확인할 수 있습니다. "자신의 이해를 시간 축 위에서 `git diff`한다"는 발상이 실제로 구현된 지점이 이곳입니다.
 
 ### 단계 감지
 
 Antigravity는 Claude Code처럼 지속되는 statusline 슬롯을 노출하지 않기 때문에, Claude 에디션이 그 자리에 그려 주던 네온 한 줄은 이식되지 않았습니다. 다만 그 뒤에 있던 단계 감지 로직 자체는 고유한 동사로 노출되어 있습니다.
 
 ```
-$paideia-phase
+/paideia-phase
 ```
 
 `setup · diag · drill · mock · cram · cool` 중 하나와 `D-<시험까지 남은 일수>`, 그리고 최신 weakmap의 top-miss 패턴을 함께 출력합니다. 단계는 **활동 기반**으로 결정됩니다 — 빈 `patterns.md`를 만들거나 `mock/<이름>.md`를 시드만 해 두어도 단계가 넘어가지 않습니다. 학생이 실제로 무언가를 채점했을 때에만 — 즉 `errors/log.md`에 canonical `pattern:` 키를 가진 엔트리가 한 건 이상 있을 때에만 — `diag`를 넘어 진행합니다.
 
-- `setup` — `course-index/patterns.md`가 아직 없음 → `$paideia-ingest` + `$paideia-analyze`
-- `diag` — 패턴은 있으나 `errors/log.md`에 채점된 엔트리가 아직 없음 → `$paideia-quiz all 20`을 풀고 채점
-- `drill` — `errors/log.md`에 채점된 엔트리가 한 건 이상 존재 → `$paideia-blind` · `$paideia-twin` · `$paideia-quiz weakmap` 반복
-- `mock` — 모의고사에서 채점된 엔트리(`errors/log.md`의 `source:`에 `mock`을 포함하는 행)가 존재 → `$paideia-cheatsheet --pdf`로 압축
+- `setup` — `course-index/patterns.md`가 아직 없음 → `/paideia-ingest` + `/paideia-analyze`
+- `diag` — 패턴은 있으나 `errors/log.md`에 채점된 엔트리가 아직 없음 → `/paideia-quiz all 20`을 풀고 채점
+- `drill` — `errors/log.md`에 채점된 엔트리가 한 건 이상 존재 → `/paideia-blind` · `/paideia-twin` · `/paideia-quiz weakmap` 반복
+- `mock` — 모의고사에서 채점된 엔트리(`errors/log.md`의 `source:`에 `mock`을 포함하는 행)가 존재 → `/paideia-cheatsheet --pdf`로 압축
 - `cram` — `cheatsheet/final.{md,pdf}` 존재 → 테이퍼링, weakmap 재독, 새 개념은 학습하지 않기
 - `cool` — `D-0` (시험 당일)은 위 모든 분기를 덮어씁니다
 
@@ -507,7 +507,7 @@ PAIDEIA-agy/
 됩니다. 인제스트와 OCR이 `eng+kor`로 설정되어 있고, 패턴과 채점 응답도 원자료의 언어 구성을 그대로 따라갑니다.
 
 **그냥 ChatGPT / Claude / Gemini에게 공부 도와 달라는 것과 뭐가 다른가요?**
-과목별 영속성입니다. LLM 챗은 당신이 2주 전 HW2에서 놓친 패턴을 기억하지 못하고, 당신 교수님이 어느 절을 실제로 강조하시는지에 대한 랭킹이 없으며, "당신의 전형적인 실수 유형"이라는 개념 자체가 없습니다. Paideia는 그 모든 것을 당신 디스크의 마크다운 파일에 써 넣습니다. `errors/log.md`가 append-only이기 때문에, 오늘 호출한 `$paideia-weakmap`은 과목 시작 이후의 모든 `$paideia-grade` 기록을 반영해서 작성됩니다. 일반 챗 세션은 아무리 똑똑해도 열 때마다 백지 상태입니다.
+과목별 영속성입니다. LLM 챗은 당신이 2주 전 HW2에서 놓친 패턴을 기억하지 못하고, 당신 교수님이 어느 절을 실제로 강조하시는지에 대한 랭킹이 없으며, "당신의 전형적인 실수 유형"이라는 개념 자체가 없습니다. Paideia는 그 모든 것을 당신 디스크의 마크다운 파일에 써 넣습니다. `errors/log.md`가 append-only이기 때문에, 오늘 호출한 `/paideia-weakmap`은 과목 시작 이후의 모든 `/paideia-grade` 기록을 반영해서 작성됩니다. 일반 챗 세션은 아무리 똑똑해도 열 때마다 백지 상태입니다.
 
 **패턴 / 치트시트 / weakmap이 마음에 안 들면 직접 고칠 수 있나요?**
 네. 산출물을 평범한 마크다운으로 두는 이유가 정확히 그것입니다. `P3`이 틀린 것 같으면 `course-index/patterns.md`를 열어 다시 쓰시면 됩니다 — 이후 드릴은 그 수정본을 사용합니다. 치트시트가 엉뚱한 걸 강조한다면 잘라 내시면 됩니다. 플러그인은 뼈대이고, 학습 그래프의 모양은 당신이 잡으십니다.
@@ -525,13 +525,13 @@ MCP 서버의 OCR 디스패처가 Ollama 실패 시 자동으로 tesseract로 �
 네 — 각 과목은 자신만의 폴더 안에 자신의 `.course-meta`, `course-index/`, `errors/log.md`, `weakmap/`을 가집니다. 과목 간에 공유되거나 섞이는 것이 없습니다. 그때그때 작업하실 과목 폴더 안에서 Antigravity CLI를 여시면 됩니다.
 
 **LLM이 매긴 채점 결과를 믿어도 되나요?**
-채점은 전략 기반(대수식 검증이 아니라 패턴 매칭)이며, 채점기는 `course-index/patterns.md`의 패턴을 인용하고, 모든 채점은 `errors/log.md`에 감사 가능한 YAML 항목으로 남습니다. 혹시 채점이 잘못되었다면 해당 YAML 항목만 수정하시면 됩니다 — 다음 `$paideia-weakmap`이 수정 사항을 반영합니다.
+채점은 전략 기반(대수식 검증이 아니라 패턴 매칭)이며, 채점기는 `course-index/patterns.md`의 패턴을 인용하고, 모든 채점은 `errors/log.md`에 감사 가능한 YAML 항목으로 남습니다. 혹시 채점이 잘못되었다면 해당 YAML 항목만 수정하시면 됩니다 — 다음 `/paideia-weakmap`이 수정 사항을 반영합니다.
 
 **제 데이터는 외부로 나가지 않나요?**
 PDF·마크다운·오답 로그·weakmap은 모두 로컬 코스 폴더 안에만 머물며, 플러그인 자체는 어떤 제3자 서비스로도 업로드하지 않습니다. 네트워크 트래픽은 선택하신 OCR 엔진에 따라 달라집니다. `antigravity-native`(기본)를 고르시면 페이지 이미지는 Antigravity CLI 자체의 비전이 읽습니다 — Antigravity가 다른 모든 턴에서 이미 쓰고 있는 동일한 보안 채널을 그대로 사용할 뿐이고, 새로 개설되는 외부 연결이 없습니다. `qwen3-vl`을 고르시면 최초 모델 다운로드 이후에는 어떠한 데이터도 기기 밖으로 나가지 않습니다. `tesseract`는 아무 때도 네트워크를 타지 않습니다.
 
 **Claude Code 에디션과 산출물을 공유할 수 있나요?**
-네. 디스크 레이아웃이 바이트 단위로 호환됩니다. Claude 에디션이 초기화한 코스 폴더는 Antigravity 에디션에서도 그대로 열리며(기존 `CLAUDE.md` 옆에 `AGENTS.md`만 하나 더 있으면 됩니다 — `$paideia-init-course`가 생성해 드립니다), 그 반대도 마찬가지입니다. 한 에디션에서 기록된 오답이 다른 에디션의 weakmap으로 그대로 흘러갑니다 — 변환이 필요하지 않습니다.
+네. 디스크 레이아웃이 바이트 단위로 호환됩니다. Claude 에디션이 초기화한 코스 폴더는 Antigravity 에디션에서도 그대로 열리며(기존 `CLAUDE.md` 옆에 `AGENTS.md`만 하나 더 있으면 됩니다 — `/paideia-init-course`가 생성해 드립니다), 그 반대도 마찬가지입니다. 한 에디션에서 기록된 오답이 다른 에디션의 weakmap으로 그대로 흘러갑니다 — 변환이 필요하지 않습니다.
 
 ---
 
